@@ -14,14 +14,14 @@ public class Pictogram {
     @Field("_id")
     private int id;
 
-    private boolean schematic;
-    private boolean sex;
-    private boolean violence;
-    private boolean aac;
-    private boolean aacColor;
-    private boolean skin;
-    private boolean hair;
-    private int downloads;
+    private Boolean schematic;
+    private Boolean sex;
+    private Boolean violence;
+    private Boolean aac;
+    private Boolean aacColor;
+    private Boolean skin;
+    private Boolean hair;
+    private Integer downloads;
 
     private List<String> categories;
     private List<String> synsets;
@@ -41,29 +41,29 @@ public class Pictogram {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public boolean isSchematic() { return schematic; }
-    public void setSchematic(boolean schematic) { this.schematic = schematic; }
+    public Boolean isSchematic() { return schematic; }
+    public void setSchematic(Boolean schematic) { this.schematic = schematic; }
 
-    public boolean isSex() { return sex; }
-    public void setSex(boolean sex) { this.sex = sex; }
+    public Boolean isSex() { return sex; }
+    public void setSex(Boolean sex) { this.sex = sex; }
 
-    public boolean isViolence() { return violence; }
-    public void setViolence(boolean violence) { this.violence = violence; }
+    public Boolean isViolence() { return violence; }
+    public void setViolence(Boolean violence) { this.violence = violence; }
 
-    public boolean isAac() { return aac; }
-    public void setAac(boolean aac) { this.aac = aac; }
+    public Boolean isAac() { return aac; }
+    public void setAac(Boolean aac) { this.aac = aac; }
 
-    public boolean isAacColor() { return aacColor; }
-    public void setAacColor(boolean aacColor) { this.aacColor = aacColor; }
+    public Boolean isAacColor() { return aacColor; }
+    public void setAacColor(Boolean aacColor) { this.aacColor = aacColor; }
 
-    public boolean isSkin() { return skin; }
-    public void setSkin(boolean skin) { this.skin = skin; }
+    public Boolean isSkin() { return skin; }
+    public void setSkin(Boolean skin) { this.skin = skin; }
 
-    public boolean isHair() { return hair; }
-    public void setHair(boolean hair) { this.hair = hair; }
+    public Boolean isHair() { return hair; }
+    public void setHair(Boolean hair) { this.hair = hair; }
 
-    public int getDownloads() { return downloads; }
-    public void setDownloads(int downloads) { this.downloads = downloads; }
+    public Integer getDownloads() { return downloads; }
+    public void setDownloads(Integer downloads) { this.downloads = downloads; }
 
     public List<String> getCategories() { return categories; }
     public void setCategories(List<String> categories) { this.categories = categories; }
