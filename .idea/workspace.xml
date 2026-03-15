@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="" />
+    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="first setup">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +144,7 @@
       <updated>1773604204447</updated>
       <workItem from="1773604208770" duration="1136000" />
       <workItem from="1773605494958" duration="3167000" />
-      <workItem from="1773609247006" duration="1160000" />
+      <workItem from="1773609247006" duration="1452000" />
     </task>
     <servers />
   </component>
@@ -158,6 +161,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="first setup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
