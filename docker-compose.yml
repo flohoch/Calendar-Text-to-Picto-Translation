@@ -1,0 +1,50 @@
+services:
+
+  mongodb:
+    image: mongo:7
+    container_name: pictogram-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: pictograms
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  data-loader:
+    build: ./data-loader
+    container_name: pictogram-data-loader
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MONGO_URI: mongodb://mongodb:27017
+      MONGO_DB: pictograms
+      ARASAAC_LANGUAGE: de
+    restart: "no"
+
+  backend:
+    build: ./backend
+    container_name: pictogram-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/pictograms
+
+  frontend:
+    build: ./frontend
+    container_name: pictogram-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
