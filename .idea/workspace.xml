@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="first setup">
+    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="updated readme">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
     </list>
@@ -144,8 +144,16 @@
       <updated>1773604204447</updated>
       <workItem from="1773604208770" duration="1136000" />
       <workItem from="1773605494958" duration="3167000" />
-      <workItem from="1773609247006" duration="1452000" />
+      <workItem from="1773609247006" duration="1525000" />
     </task>
+    <task id="LOCAL-00001" summary="updated readme">
+      <created>1773610736053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773610736053</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +172,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="first setup" />
+    <MESSAGE value="updated readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
