@@ -1,0 +1,60 @@
+<div class="app">
+  <header class="app-header">
+    <h1>📅 Pictogram Translator</h1>
+    <p class="subtitle">Translate calendar events into ARASAAC pictograms</p>
+  </header>
+
+  <main class="app-main">
+    <section class="input-section">
+      <app-event-field-input
+        label="Summary"
+        placeholder="e.g. eat breakfast"
+        [(value)]="summary"
+      ></app-event-field-input>
+
+      <app-event-field-input
+        label="Location"
+        placeholder="e.g. school"
+        [(value)]="location"
+      ></app-event-field-input>
+
+      <app-event-field-input
+        label="Participants"
+        placeholder="e.g. mother father"
+        [(value)]="participants"
+      ></app-event-field-input>
+
+      <button
+        class="translate-btn"
+        (click)="onTranslate()"
+        [disabled]="loading || isAllEmpty()"
+      >
+        {{ loading ? 'Translating…' : 'Translate to Pictograms' }}
+      </button>
+
+      <div class="error-msg" *ngIf="error">Error: {{ error }}</div>
+    </section>
+
+    <section class="results-section" *ngIf="results">
+      <h2>Translation Results</h2>
+      <app-pictogram-results
+        label="Summary"
+        [data]="results.summary"
+      ></app-pictogram-results>
+      <app-pictogram-results
+        label="Location"
+        [data]="results.location"
+      ></app-pictogram-results>
+      <app-pictogram-results
+        label="Participants"
+        [data]="results.participants"
+      ></app-pictogram-results>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    Pictograms by
+    <a href="https://arasaac.org" target="_blank" rel="noreferrer">ARASAAC</a>
+    — CC BY-NC-SA 4.0
+  </footer>
+</div>
