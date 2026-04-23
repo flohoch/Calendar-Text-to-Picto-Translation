@@ -54,7 +54,7 @@ Future tiers (not yet implemented):
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/pictogram-translator.git
+git clone https://github.com/flohoch/pictogram-translator.git
 cd pictogram-translator
 
 # Build and start all services
