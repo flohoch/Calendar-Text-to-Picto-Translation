@@ -1,8 +1,8 @@
 # Calendar-Text-to-Picto-Translation
 
-A hybrid pipeline that translates calendar event data into [ARASAAC](https://arasaac.org) pictograms. Built as a full-stack application with an **Angular** frontend, a **Java / Spring Boot** backend, and **MongoDB** for pictogram storage.
+A hybrid pipeline that translates calendar event data into [ARASAAC](https://arasaac.org) pictograms. Built as a full-stack application with an **Angular** frontend, a **Python / FastAPI** backend, and **MongoDB** for pictogram storage.
 
-The system follows the tiered architecture described in the AAC research literature: a curated keyword-matching core ensures deterministic, reliable output for accessibility-critical users, with room to extend toward lemmatization and API-fallback tiers.
+The system follows the tiered architecture described in the AAC research literature: a curated keyword-matching core ensures deterministic, reliable output for accessibility-critical users, extended by stemming and WordNet synset traversal for broader coverage.
 
 ---
 
@@ -10,40 +10,49 @@ The system follows the tiered architecture described in the AAC research literat
 
 ```
 ┌────────────┐        ┌────────────────┐        ┌──────────┐
-│  Angular   │──────▶│  Spring Boot    │──────▶│ MongoDB  │
-│  Frontend  │ REST   │   Backend      │ query  │           │
-│  (Nginx)   │◀──────│  /api/translate │◀──────│ 25 000+   │
-│  :3000     │  JSON  │  :8080         │        │ pictograms│
-└────────────┘        └────────────────┘        └───────────┘
+│  Angular   │──────▶│  FastAPI        │──────▶│ MongoDB  │
+│  Frontend  │ REST   │  Backend       │ query  │          │
+│  (Nginx)   │◀──────│  /api/translate │◀──────│ 25 000+  │
+│  :3000     │  JSON  │  :8080         │        │pictograms│
+└────────────┘        └────────────────┘        └──────────┘
                                                    ▲
                                                    │ seed
                                               ┌────┴───────┐
-                                              │ Data Loader│
-                                              │ (Python)   │
-                                              └────────────┘
+                                              │ Data Loader │
+                                              │ (Python)    │
+                                              └─────────────┘
                                                    ▲
                                                    │ HTTP
                                               ARASAAC API
 ```
 
-| Service        | Technology          | Port  | Purpose                                       |
-|----------------|---------------------|-------|-----------------------------------------------|
-| `mongodb`      | MongoDB 7           | 27017 | Stores all ARASAAC pictogram records          |
-| `data-loader`  | Python 3.12         | —     | Fetches pictograms from ARASAAC API → MongoDB |
-| `backend`      | Java 21, Spring Boot 3.4 | 8080 | Translation pipeline (keyword matching)   |
-| `frontend`     | Angular 19          | 3000  | Calendar event input & pictogram display      |
+| Service        | Technology              | Port  | Purpose                                       |
+|----------------|-------------------------|-------|-----------------------------------------------|
+| `mongodb`      | MongoDB 7               | 27017 | Stores all ARASAAC pictogram records          |
+| `data-loader`  | Python 3.12             | —     | Fetches pictograms from ARASAAC API → MongoDB |
+| `backend`      | Python 3.12, FastAPI    | 8080  | Translation pipeline                          |
+| `frontend`     | Angular 19              | 3000  | Calendar event input & pictogram display      |
 
 ## Translation Pipeline
 
-The backend currently implements **Tier 1** of the hybrid architecture:
+The backend implements a five-tier hybrid matching pipeline. Each input field is tokenized and processed through the tiers in order until a match is found:
 
-1. **Input normalization** — lowercase and split on whitespace.
-2. **Exact keyword matching** — each token is matched against the `searchTerms` index in MongoDB. This index contains all lowercased keywords, plurals, tags, and categories from the ARASAAC database.
-3. **Result assembly** — matched pictograms are returned with image URLs; unmatched tokens are flagged.
+**Tier 1 — Multi-word sliding window (exact match)**
+Starting from each token position, the pipeline tries the longest possible phrase first, then shrinks the window. This handles ARASAAC multi-word keywords like *"an einem Seil gehen"* as a single pictogram match.
 
-Future tiers (not yet implemented):
-- **Tier 2**: Lemmatization + ARASAAC API fallback for unseen word forms.
-- **Tier 3**: Human review queue / constrained neural model for edge cases.
+**Tier 2 — Exact single-token match**
+Each remaining token is checked against the pre-built index of lowercased keywords, plurals, tags, and categories from the ARASAAC database.
+
+**Tier 3 — Stemmed match**
+The token is stemmed using the NLTK Snowball German stemmer, then matched against a stem index built from all ARASAAC keywords. This handles inflections like *"Hunde"* → *"hund"* → pictogram for *"Hund"*.
+
+**Tier 4 — Synset match (WordNet hypernym traversal)**
+The token's synsets are looked up via the ARASAAC keyword-to-synset mapping, then WordNet hypernyms are traversed up to 4 levels. This allows *"Lachs"* (salmon) to match the pictogram for *"Fisch"* (fish) via the hypernym chain.
+
+**Tier 5 — Unmatched**
+Tokens that fail all tiers are flagged in the response as `unmatchedTokens`.
+
+Each match includes a `matchType` field (`EXACT`, `STEMMED`, or `SYNSET`) so the frontend can indicate how the pictogram was found.
 
 ## Prerequisites
 
@@ -54,8 +63,8 @@ Future tiers (not yet implemented):
 
 ```bash
 # Clone the repository
-git clone https://github.com/flohoch/pictogram-translator.git
-cd pictogram-translator
+git clone https://github.com/flohoch/Calendar-Text-to-Picto-Translation.git
+cd Calendar-Text-to-Picto-Translation
 
 # Build and start all services
 docker compose up --build
@@ -78,7 +87,7 @@ The data loader runs once and exits. On subsequent starts, it detects the existi
     - **Location** — where it takes place (e.g., `Schule`)
     - **Participants** — who is involved (e.g., `Mutter Vater`)
 3. Click **Translate to Pictograms**.
-4. Each field shows matched pictograms with images and labels, plus any tokens that couldn't be matched.
+4. Each field shows matched pictograms with images and labels, a badge indicating the match type, plus any tokens that couldn't be matched.
 
 ## API Reference
 
@@ -89,9 +98,9 @@ Translate a calendar event into pictograms.
 **Request body:**
 ```json
 {
-  "summary": "eat breakfast",
-  "location": "school",
-  "participants": "mother"
+  "summary": "Essen Frühstück",
+  "location": "Schule",
+  "participants": "Mutter Vater"
 }
 ```
 
@@ -99,13 +108,14 @@ Translate a calendar event into pictograms.
 ```json
 {
   "summary": {
-    "originalText": "eat breakfast",
+    "originalText": "Essen Frühstück",
     "matches": [
       {
-        "matchedTerm": "eat",
+        "matchedTerm": "essen",
         "pictogramId": 6456,
         "imageUrl": "https://static.arasaac.org/pictograms/6456/6456_500.png",
-        "keywords": [...]
+        "keywords": [...],
+        "matchType": "EXACT"
       }
     ],
     "unmatchedTokens": []
@@ -125,12 +135,12 @@ Health check returning `{ "status": "ok", "pictogramCount": 25000 }`.
 
 ## Configuration
 
-| Environment Variable        | Default                              | Description                        |
-|-----------------------------|--------------------------------------|------------------------------------|
-| `SPRING_DATA_MONGODB_URI`   | `mongodb://localhost:27017/pictograms` | MongoDB connection string (backend) |
-| `MONGO_URI`                 | `mongodb://localhost:27017`          | MongoDB connection string (loader)  |
-| `MONGO_DB`                  | `pictograms`                         | Database name (loader)              |
-| `ARASAAC_LANGUAGE`          | `de`                                 | Language code for ARASAAC API       |
+| Environment Variable        | Default                                | Description                        |
+|-----------------------------|----------------------------------------|------------------------------------|
+| `SPRING_DATA_MONGODB_URI`   | `mongodb://localhost:27017/pictograms` | MongoDB connection string (backend)|
+| `MONGO_URI`                 | `mongodb://localhost:27017`            | MongoDB connection string (loader) |
+| `MONGO_DB`                  | `pictograms`                           | Database name (loader)             |
+| `ARASAAC_LANGUAGE`          | `de`                                   | Language code for ARASAAC API      |
 
 To change the pictogram language, set `ARASAAC_LANGUAGE` in `docker-compose.yml` (e.g., `en`, `es`, `fr`).
 
@@ -145,14 +155,15 @@ docker compose up mongodb -d
 # Run data loader
 docker compose up data-loader
 
-# Backend (requires Java 21 + Maven)
+# Backend (requires Python 3.12+)
 cd backend
-mvn spring-boot:run
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8080
 
 # Frontend (requires Node 20+)
 cd frontend
 npm install
-npm start    # → http://localhost:4200 with API proxy to :8080
+ng serve --proxy-config proxy.conf.json    # → http://localhost:4200 with API proxy to :8080
 ```
 
 ### Re-seed the database
@@ -166,27 +177,27 @@ docker compose up data-loader
 ## Project Structure
 
 ```
-pictogram-translator/
+Calendar-Text-to-Picto-Translation/
 ├── docker-compose.yml
 ├── data-loader/
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── load_pictograms.py        # ARASAAC API → MongoDB
+│   └── load_pictograms.py            # ARASAAC API → MongoDB
 ├── backend/
 │   ├── Dockerfile
-│   ├── pom.xml
-│   └── src/main/java/com/pictogramtranslator/
-│       ├── PictogramTranslatorApplication.java
-│       ├── config/WebConfig.java               # CORS
-│       ├── controller/TranslationController.java
-│       ├── model/
-│       │   ├── Keyword.java
-│       │   ├── Pictogram.java
-│       │   ├── PictogramMatch.java
-│       │   ├── TranslationRequest.java
-│       │   └── TranslationResponse.java
-│       ├── repository/PictogramRepository.java
-│       └── service/TranslationService.java
+│   ├── requirements.txt
+│   └── app/
+│       ├── main.py                    # FastAPI app with startup lifecycle
+│       ├── models/
+│       │   └── schemas.py             # Pydantic models (request/response/DB)
+│       ├── routers/
+│       │   └── api.py                 # POST /api/translate, GET /api/status
+│       └── services/
+│           ├── database.py            # PyMongo connection
+│           ├── stemmer.py             # NLTK Snowball German stemmer
+│           ├── synset_service.py      # WordNet hypernym traversal
+│           ├── index_service.py       # In-memory indices built at startup
+│           └── translation_service.py # 5-tier matching pipeline
 └── frontend/
     ├── Dockerfile
     ├── nginx.conf
@@ -201,6 +212,8 @@ pictogram-translator/
         ├── styles.css
         └── app/
             ├── app.component.ts
+            ├── app.component.html
+            ├── app.component.css
             ├── app.config.ts
             ├── models/
             │   └── translation.model.ts
