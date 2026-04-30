@@ -1,107 +1,101 @@
+"""
+Loads ARASAAC pictograms into MongoDB, one collection per language.
+Collections: pictograms_de, pictograms_en
+
+Each collection has its own copy of every pictogram with language-specific
+keywords. The backend selects the right collection based on the request
+language.
+"""
 import os
 import sys
 import time
+
 import requests
-from pymongo import MongoClient, ASCENDING
+from pymongo import ASCENDING, MongoClient
 
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 MONGO_DB = os.getenv("MONGO_DB", "pictograms")
-LANGUAGE = os.getenv("ARASAAC_LANGUAGE", "de")
+LANGUAGES = [lang.strip() for lang in os.getenv("ARASAAC_LANGUAGES", "de,en").split(",")]
 ARASAAC_BASE = "https://api.arasaac.org/v1"
-COLLECTION = "pictograms"
 
 
-def fetch_all_pictograms(language: str) -> list[dict]:
-    """Fetch every pictogram record from the ARASAAC API for the given language."""
+def fetch_all(language: str) -> list[dict]:
     url = f"{ARASAAC_BASE}/pictograms/all/{language}"
-    print(f"Fetching pictograms from {url} ...")
-    response = requests.get(url, timeout=120)
-    response.raise_for_status()
-    data = response.json()
-    print(f"Received {len(data)} pictograms from ARASAAC API.")
+    print(f"[{language}] Fetching {url} ...")
+    r = requests.get(url, timeout=180)
+    r.raise_for_status()
+    data = r.json()
+    print(f"[{language}] Received {len(data)} pictograms.")
     return data
 
 
-def build_search_terms(pictogram: dict) -> list[str]:
-    """
-    Extract all searchable text from a pictogram and return as lowercased list.
-    Includes keyword texts, plurals, tags, and categories.
-    """
+def build_search_terms(p: dict) -> list[str]:
     terms: set[str] = set()
-
-    for kw in pictogram.get("keywords", []):
-        keyword = kw.get("keyword", "")
-        if keyword:
-            terms.add(keyword.strip().lower())
-        plural = kw.get("plural", "")
-        if plural:
-            terms.add(plural.strip().lower())
-
-    for tag in pictogram.get("tags", []):
+    for kw in p.get("keywords", []):
+        if kw.get("keyword"):
+            terms.add(kw["keyword"].strip().lower())
+        if kw.get("plural"):
+            terms.add(kw["plural"].strip().lower())
+    for tag in p.get("tags", []):
         if tag:
             terms.add(tag.strip().lower())
-
-    for cat in pictogram.get("categories", []):
+    for cat in p.get("categories", []):
         if cat:
             terms.add(cat.strip().lower())
-
     return sorted(terms)
 
 
-def load_into_mongodb(pictograms: list[dict]):
-    """Insert pictograms into MongoDB, enriching each with searchTerms."""
-    client = MongoClient(MONGO_URI)
-    db = client[MONGO_DB]
-    collection = db[COLLECTION]
+def load_language(language: str, db) -> None:
+    coll_name = f"pictograms_{language}"
+    coll = db[coll_name]
 
-    existing = collection.count_documents({})
-    if existing > 0:
-        print(f"Collection already contains {existing} documents. Skipping load.")
-        print("Drop the collection manually if you want to reload.")
-        client.close()
+    if coll.count_documents({}) > 0:
+        print(f"[{language}] Collection '{coll_name}' already populated. Skipping.")
         return
 
+    pictograms = fetch_all(language)
     docs = []
     for p in pictograms:
         p["searchTerms"] = build_search_terms(p)
         docs.append(p)
 
-    print(f"Inserting {len(docs)} pictograms into MongoDB ...")
-    batch_size = 1000
-    for i in range(0, len(docs), batch_size):
-        batch = docs[i : i + batch_size]
-        collection.insert_many(batch)
-        print(f"  Inserted {min(i + batch_size, len(docs))} / {len(docs)}")
+    print(f"[{language}] Inserting {len(docs)} pictograms into {coll_name} ...")
+    batch = 1000
+    for i in range(0, len(docs), batch):
+        coll.insert_many(docs[i : i + batch])
+        print(f"  [{language}] {min(i + batch, len(docs))}/{len(docs)}")
 
-    # Create indexes for efficient lookup
-    collection.create_index([("_id", ASCENDING)])
-    collection.create_index([("searchTerms", ASCENDING)])
-    collection.create_index([("keywords.keyword", ASCENDING)])
-    print("Indexes created.")
-
-    client.close()
-    print("Data loading complete.")
+    coll.create_index([("_id", ASCENDING)])
+    coll.create_index([("searchTerms", ASCENDING)])
+    coll.create_index([("keywords.keyword", ASCENDING)])
+    print(f"[{language}] Indexes created.")
 
 
 def main():
-    max_retries = 5
-    for attempt in range(1, max_retries + 1):
-        try:
-            pictograms = fetch_all_pictograms(LANGUAGE)
-            load_into_mongodb(pictograms)
-            return
-        except requests.RequestException as e:
-            print(f"Attempt {attempt}/{max_retries} failed: {e}")
-            if attempt < max_retries:
-                wait = attempt * 10
-                print(f"Retrying in {wait}s ...")
-                time.sleep(wait)
-            else:
-                print("All retries exhausted. Exiting.")
+    client = MongoClient(MONGO_URI)
+    db = client[MONGO_DB]
+
+    for language in LANGUAGES:
+        retries = 5
+        for attempt in range(1, retries + 1):
+            try:
+                load_language(language, db)
+                break
+            except requests.RequestException as e:
+                print(f"[{language}] Attempt {attempt}/{retries} failed: {e}")
+                if attempt < retries:
+                    wait = attempt * 10
+                    print(f"  Retrying in {wait}s ...")
+                    time.sleep(wait)
+                else:
+                    print(f"[{language}] Giving up.")
+                    sys.exit(1)
+            except Exception as e:
+                print(f"[{language}] Unexpected error: {e}")
                 sys.exit(1)
-        except Exception as e:
-            print(f"Unexpected error: {e}")
-            sys.exit(1)
+
+    client.close()
+    print("Data loading complete for all languages.")
 
 
 if __name__ == "__main__":

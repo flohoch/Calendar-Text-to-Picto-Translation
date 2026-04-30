@@ -2,44 +2,63 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventFieldInputComponent } from './components/event-field-input/event-field-input.component';
 import { PictogramResultsComponent } from './components/pictogram-results/pictogram-results.component';
+import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { EvaluationViewComponent } from './components/evaluation-view/evaluation-view.component';
 import { TranslationService } from './services/translation.service';
-import { TranslationResponse } from './models/translation.model';
+import { Language, TranslationResponse } from './models/translation.model';
+
+type Tab = 'translate' | 'evaluation';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, EventFieldInputComponent, PictogramResultsComponent],
+  imports: [
+    CommonModule,
+    EventFieldInputComponent,
+    PictogramResultsComponent,
+    LanguageSelectorComponent,
+    EvaluationViewComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  tab: Tab = 'translate';
+
+  language: Language = 'de';
   summary = '';
   location = '';
-  participants = '';
+  attendees = '';
+
   results: TranslationResponse | null = null;
   loading = false;
   error: string | null = null;
 
-  constructor(private translationService: TranslationService) {}
+  constructor(private svc: TranslationService) {}
 
   isAllEmpty(): boolean {
     return (
       !this.summary.trim() &&
       !this.location.trim() &&
-      !this.participants.trim()
+      !this.attendees.trim()
     );
   }
 
-  onTranslate(): void {
+  setTab(t: Tab) {
+    this.tab = t;
+  }
+
+  onTranslate() {
     this.loading = true;
     this.error = null;
     this.results = null;
 
-    this.translationService
+    this.svc
       .translate({
         summary: this.summary,
         location: this.location,
-        participants: this.participants,
+        attendees: this.attendees,
+        language: this.language,
       })
       .subscribe({
         next: (response) => {
@@ -47,7 +66,7 @@ export class AppComponent {
           this.loading = false;
         },
         error: (err) => {
-          this.error = err.message || 'Translation request failed';
+          this.error = err?.error?.detail || err.message;
           this.loading = false;
         },
       });

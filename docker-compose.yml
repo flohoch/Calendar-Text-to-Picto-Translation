@@ -24,7 +24,7 @@ services:
     environment:
       MONGO_URI: mongodb://mongodb:27017
       MONGO_DB: pictograms
-      ARASAAC_LANGUAGE: de
+      ARASAAC_LANGUAGES: de,en
     restart: "no"
 
   backend:
@@ -37,6 +37,9 @@ services:
         condition: service_healthy
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/pictograms
+      DATA_DIR: /data
+    volumes:
+      - ./data:/data
 
   frontend:
     build: ./frontend

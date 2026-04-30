@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TranslationRequest, TranslationResponse } from '../models/translation.model';
+import {
+  EvaluationRun,
+  EvaluationRunSummary,
+  Language,
+  TranslationRequest,
+  TranslationResponse,
+} from '../models/translation.model';
 
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
@@ -16,9 +22,22 @@ export class TranslationService {
     );
   }
 
-  getStatus(): Observable<{ status: string; pictogramCount: number }> {
-    return this.http.get<{ status: string; pictogramCount: number }>(
-      `${this.apiUrl}/status`
+  runEvaluation(language: Language): Observable<{ filename: string }> {
+    return this.http.post<{ filename: string }>(
+      `${this.apiUrl}/evaluation/run/${language}`,
+      {}
+    );
+  }
+
+  listEvaluationRuns(): Observable<{ runs: EvaluationRunSummary[] }> {
+    return this.http.get<{ runs: EvaluationRunSummary[] }>(
+      `${this.apiUrl}/evaluation/runs`
+    );
+  }
+
+  getEvaluationRun(filename: string): Observable<EvaluationRun> {
+    return this.http.get<EvaluationRun>(
+      `${this.apiUrl}/evaluation/runs/${filename}`
     );
   }
 }

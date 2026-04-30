@@ -1,27 +1,47 @@
 <div class="app">
   <header class="app-header">
     <h1>📅 Pictogram Translator</h1>
-    <p class="subtitle">Translate calendar events into ARASAAC pictograms</p>
+    <p class="subtitle">
+      Translate calendar events into ARASAAC pictograms — multilingual hybrid pipeline
+    </p>
   </header>
 
-  <main class="app-main">
+  <nav class="tabs">
+    <button [class.active]="tab === 'translate'" (click)="setTab('translate')">
+      Translate
+    </button>
+    <button [class.active]="tab === 'evaluation'" (click)="setTab('evaluation')">
+      Evaluation
+    </button>
+  </nav>
+
+  <main class="app-main" *ngIf="tab === 'translate'">
     <section class="input-section">
+      <app-language-selector
+        [value]="language"
+        (valueChange)="language = $event"
+      ></app-language-selector>
+
       <app-event-field-input
         label="Summary"
-        placeholder="e.g. eat breakfast"
+        placeholder="e.g. Essen Frühstück"
+        icon="📝"
         [(value)]="summary"
       ></app-event-field-input>
 
       <app-event-field-input
         label="Location"
-        placeholder="e.g. school"
+        placeholder="e.g. Schule"
+        icon="📍"
         [(value)]="location"
       ></app-event-field-input>
 
       <app-event-field-input
-        label="Participants"
-        placeholder="e.g. mother father"
-        [(value)]="participants"
+        label="Attendees"
+        placeholder="e.g. Mami, Papa, Dr. Müller"
+        hint="Separate multiple attendees with commas"
+        icon="👥"
+        [(value)]="attendees"
       ></app-event-field-input>
 
       <button
@@ -46,10 +66,14 @@
         [data]="results.location"
       ></app-pictogram-results>
       <app-pictogram-results
-        label="Participants"
-        [data]="results.participants"
+        label="Attendees"
+        [attendees]="results.attendees"
       ></app-pictogram-results>
     </section>
+  </main>
+
+  <main class="app-main" *ngIf="tab === 'evaluation'">
+    <app-evaluation-view></app-evaluation-view>
   </main>
 
   <footer class="app-footer">
