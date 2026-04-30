@@ -53,16 +53,16 @@ import { PictogramResultsComponent } from '../pictogram-results/pictogram-result
       <div *ngIf="selectedRun" class="run-detail">
         <h3>Metrics — {{ selectedRun.run_id }}</h3>
         <div class="metrics-grid">
-          <div class="metric"><label>Entries</label><value>{{ selectedRun.metrics.total_entries }}</value></div>
-          <div class="metric"><label>Coverage (Summary)</label><value>{{ pct(selectedRun.metrics.coverage_summary) }}</value></div>
-          <div class="metric"><label>Coverage (Location)</label><value>{{ pct(selectedRun.metrics.coverage_location) }}</value></div>
-          <div class="metric"><label>Coverage (Attendees)</label><value>{{ pct(selectedRun.metrics.coverage_attendees) }}</value></div>
-          <div class="metric primary"><label>Accuracy (Summary)</label><value>{{ pct(selectedRun.metrics.accuracy_summary) }}</value></div>
-          <div class="metric primary"><label>Accuracy (Location)</label><value>{{ pct(selectedRun.metrics.accuracy_location) }}</value></div>
-          <div class="metric primary"><label>Accuracy (Attendees)</label><value>{{ pct(selectedRun.metrics.accuracy_attendees) }}</value></div>
-          <div class="metric primary"><label>Accuracy (Overall)</label><value>{{ pct(selectedRun.metrics.accuracy_overall) }}</value></div>
-          <div class="metric"><label>Avg Confidence</label><value>{{ selectedRun.metrics.avg_confidence | number:'1.2-2' }}</value></div>
-          <div class="metric"><label>Avg Unmatched / Entry</label><value>{{ selectedRun.metrics.avg_unmatched_tokens_per_entry | number:'1.1-2' }}</value></div>
+          <div class="metric"><label>Entries</label><span class="value">{{ selectedRun.metrics.total_entries }}</span></div>
+          <div class="metric"><label>Coverage (Summary)</label><span class="value">{{ pct(selectedRun.metrics.coverage_summary) }}</span></div>
+          <div class="metric"><label>Coverage (Location)</label><span class="value">{{ pct(selectedRun.metrics.coverage_location) }}</span></div>
+          <div class="metric"><label>Coverage (Attendees)</label><span class="value">{{ pct(selectedRun.metrics.coverage_attendees) }}</span></div>
+          <div class="metric primary"><label>Accuracy (Summary)</label><span class="value">{{ pct(selectedRun.metrics.accuracy_summary) }}</span></div>
+          <div class="metric primary"><label>Accuracy (Location)</label><span class="value">{{ pct(selectedRun.metrics.accuracy_location) }}</span></div>
+          <div class="metric primary"><label>Accuracy (Attendees)</label><span class="value">{{ pct(selectedRun.metrics.accuracy_attendees) }}</span></div>
+          <div class="metric primary"><label>Accuracy (Overall)</label><span class="value">{{ pct(selectedRun.metrics.accuracy_overall) }}</span></div>
+          <div class="metric"><label>Avg Confidence</label><span class="value">{{ selectedRun.metrics.avg_confidence | number:'1.2-2' }}</span></div>
+          <div class="metric"><label>Avg Unmatched / Entry</label><span class="value">{{ selectedRun.metrics.avg_unmatched_tokens_per_entry | number:'1.1-2' }}</span></div>
         </div>
 
         <div class="match-type-dist">
@@ -166,7 +166,7 @@ import { PictogramResultsComponent } from '../pictogram-results/pictogram-result
       }
       .metric.primary { border-left: 4px solid #4361ee; }
       .metric label { display: block; color: #666; font-size: 0.8rem; }
-      .metric value { font-weight: 700; font-size: 1.2rem; color: #16213e; }
+      .metric .value { display: block; font-weight: 700; font-size: 1.2rem; color: #16213e; }
 
       .mt-bars { display: flex; flex-wrap: wrap; gap: 0.5rem; }
       .mt-bar {
