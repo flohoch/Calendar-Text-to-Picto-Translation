@@ -28,12 +28,12 @@ logger = logging.getLogger(__name__)
 # Edit this table per user. Keys are lowercased first names.
 PERSONAL_RELATIONSHIPS: dict[Language, dict[str, str]] = {
     Language.DE: {
-        "anna": "schwester",
+        "anna": "freundin",
         "marina": "schwester",
         "alex": "bruder",
     },
     Language.EN: {
-        "anna": "sister",
+        "anna": "girlfriend",
         "marina": "sister",
         "alex": "brother",
     },

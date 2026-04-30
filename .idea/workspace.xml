@@ -5,78 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="updated readme">
-      <change afterPath="$PROJECT_DIR$/backend/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/models/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/routers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/routers/api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/routers/evaluation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/attendee_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/compound_splitter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/disambiguation_dictionaries.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/evaluation_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/index_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/lexical_dictionaries.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/location_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/matching_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/nlp_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/personal_relationships.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/summary_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/synset_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/translation_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/evaluation-view/evaluation-view.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/language-selector/language-selector.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/PictogramTranslatorApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/controller/TranslationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/model/Keyword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/model/Pictogram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/model/PictogramMatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/model/TranslationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/model/TranslationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/repository/PictogramRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/service/GermanStemmerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/service/PictogramIndexService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/service/SynsetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pictogramtranslator/service/TranslationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-loader/load_pictograms.py" beforeDir="false" afterPath="$PROJECT_DIR$/data-loader/load_pictograms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/extensions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.vscode/tasks.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/proxy.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/proxy.conf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/event-field-input/event-field-input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/event-field-input/event-field-input.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/pictogram-results/pictogram-results.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/pictogram-results/pictogram-results.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/models/translation.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/models/translation.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/translation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/translation.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/evaluation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/evaluation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/personal_relationships.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/personal_relationships.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/evaluation-view/evaluation-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/evaluation-view/evaluation-view.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +17,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -116,35 +49,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Masterarbeits Tests/backend/app/services",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Masterarbeits Tests\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Masterarbeits Tests/backend/app/services&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Masterarbeits Tests\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Masterarbeits Tests\backend\app\services" />
@@ -274,7 +207,7 @@
       <workItem from="1777233262664" duration="909000" />
       <workItem from="1777234230905" duration="1485000" />
       <workItem from="1777239118002" duration="8841000" />
-      <workItem from="1777575299206" duration="2186000" />
+      <workItem from="1777575299206" duration="3694000" />
     </task>
     <task id="LOCAL-00001" summary="updated readme">
       <created>1773610736053</created>
@@ -297,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773610882482</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated readme">
+      <option name="closed" value="true" />
+      <created>1777589833975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777589833975</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
