@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="updated pipeline, unter anderem added preferred_pictograms.py layer">
+    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="updated pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/services/attendee_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/attendee_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/compound_splitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/compound_splitter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/services/disambiguation_dictionaries.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/disambiguation_dictionaries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/services/lexical_dictionaries.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/lexical_dictionaries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/services/location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/location_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/matching_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/matching_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/nlp_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/nlp_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/preferred_pictograms.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/preferred_pictograms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/summary_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/summary_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/synset_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/synset_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/services/text_normalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/text_normalization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/input/calendar_entries_de.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/input/calendar_entries_de.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/input/calendar_entries_en.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/input/calendar_entries_en.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +211,7 @@
       <workItem from="1777233262664" duration="909000" />
       <workItem from="1777234230905" duration="1485000" />
       <workItem from="1777239118002" duration="8841000" />
-      <workItem from="1777575299206" duration="33220000" />
+      <workItem from="1777575299206" duration="37341000" />
     </task>
     <task id="LOCAL-00001" summary="updated readme">
       <created>1773610736053</created>
@@ -274,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777640260748</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated pipeline">
+      <option name="closed" value="true" />
+      <created>1777673503922</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777673503922</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +299,8 @@
     <MESSAGE value="updated readme" />
     <MESSAGE value="fixed value tag bug" />
     <MESSAGE value="updated pipeline, unter anderem added preferred_pictograms.py layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pipeline, unter anderem added preferred_pictograms.py layer" />
+    <MESSAGE value="updated pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pipeline" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

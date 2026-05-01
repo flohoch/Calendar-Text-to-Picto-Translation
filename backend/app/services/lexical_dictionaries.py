@@ -3,14 +3,20 @@ Hand-curated lexical dictionaries that map common shortcuts/brand names to
 ARASAAC-relevant concept words. Concepts are looked up in the pictogram
 index, so we don't hardcode pictogram IDs (which makes this robust to
 ARASAAC database changes).
+
+Values may be either a single concept string OR a list of fallback aliases.
+When a list is provided, each alias is tried in order against the index
+until one resolves; this matters when the most natural concept word
+(e.g. "job center") isn't an ARASAAC keyword but a synonym is
+(e.g. "employment office").
 """
 from app.models.schemas import Language
 
 
 # --- Location dictionaries ---
-# Brand names / abbreviations → ARASAAC concept word
+# Brand names / abbreviations → ARASAAC concept word (or list of fallbacks)
 
-LOCATION_LEXICAL: dict[Language, dict[str, str]] = {
+LOCATION_LEXICAL: dict[Language, dict[str, str | list[str]]] = {
     Language.DE: {
         # Supermarkets (Austria/Germany)
         "hofer": "supermarkt",
@@ -40,12 +46,13 @@ LOCATION_LEXICAL: dict[Language, dict[str, str]] = {
         "öbb": "bahnhof",
         "u-bahn": "u_bahn",
         "wiener linien": "öffentlicher_verkehr",
+        # Employment / public services
+        "ams": ["arbeitsamt", "jobcenter", "arbeit"],
         # Other
         "kindergarten": "kindergarten",
         "park": "park",
         "büro": "büro",
         "arbeit": "arbeit",
-        "ams": "Jobcenter",
     },
     Language.EN: {
         "walmart": "supermarket",
@@ -66,7 +73,9 @@ LOCATION_LEXICAL: dict[Language, dict[str, str]] = {
         "work": "work",
         "park": "park",
         "station": "station",
-        "ams": "job center",
+        # Employment / public services
+        "ams": ["employment office", "job center", "jobcenter", "work"],
+        "jobcenter": ["employment office", "job center", "work"],
     },
 }
 
@@ -158,14 +167,28 @@ GENERIC_FALLBACK_CONCEPTS: dict[str, dict[Language, str]] = {
 }
 
 # Generic person pictogram (user-specified)
-GENERIC_PERSON_PICTOGRAM_ID = 36935
+GENERIC_PERSON_PICTOGRAM_ID = 34560
 
 
-def get_location_lexical(text: str, language: Language) -> str | None:
-    """Return concept word if text matches a location shortcut, else None."""
-    return LOCATION_LEXICAL.get(language, {}).get(text.lower().strip())
+def get_location_lexical(text: str, language: Language) -> list[str] | None:
+    """Return list of concept-word fallbacks for a location shortcut, else None.
+
+    Always returns a list (even for single-concept entries) so callers can
+    iterate uniformly. The first concept that resolves in the index wins.
+    """
+    val = LOCATION_LEXICAL.get(language, {}).get(text.lower().strip())
+    if val is None:
+        return None
+    if isinstance(val, str):
+        return [val]
+    return list(val)
 
 
-def get_attendee_lexical(text: str, language: Language) -> str | None:
-    """Return concept word if text matches an attendee shortcut, else None."""
-    return ATTENDEE_LEXICAL.get(language, {}).get(text.lower().strip())
+def get_attendee_lexical(text: str, language: Language) -> list[str] | None:
+    """Return list of concept-word fallbacks for an attendee shortcut, else None."""
+    val = ATTENDEE_LEXICAL.get(language, {}).get(text.lower().strip())
+    if val is None:
+        return None
+    if isinstance(val, str):
+        return [val]
+    return list(val)

@@ -115,8 +115,10 @@ def translate(text: str, language: Language,
     candidates = [c for c in candidates if c and not (c in seen or seen.add(c))]
 
     for cand in candidates:
-        concept = lexical_dictionaries.get_location_lexical(cand, language)
-        if concept:
+        concept_aliases = lexical_dictionaries.get_location_lexical(cand, language)
+        if not concept_aliases:
+            continue
+        for concept in concept_aliases:
             results = index_service.find_by_exact(concept, language)
             if results:
                 logger.info("[LOCATION] LEXICAL_DICT: '%s'→'%s' → pictogram %d",
@@ -125,6 +127,10 @@ def translate(text: str, language: Language,
                     text, concept, MatchType.LEXICAL_DICT
                 ))
                 return FieldTranslation(originalText=text, matches=matches, unmatchedTokens=[])
+        logger.info(
+            "[LOCATION] LEXICAL_DICT: '%s' had aliases %s but none resolved in the index",
+            cand, concept_aliases,
+        )
 
     # Tier D: token-level pipeline (with sliding window)
     content = nlp_result.content_tokens()

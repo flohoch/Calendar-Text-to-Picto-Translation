@@ -92,9 +92,11 @@ LOCATION_DISAMBIGUATION: dict[Language, dict[str, list[DisambiguationCandidate]]
                 ],
             ),
             DisambiguationCandidate(
-                # Sitzbank — try several concept aliases. ARASAAC may have
-                # any of these as a keyword for the bench-pictogram.
-                concept="parkbank",
+                # Sitzbank — pinned directly to the ARASAAC park-bench
+                # pictogram (id 3255) since "parkbank" is not an ARASAAC
+                # keyword and the concept-based lookup would fail.
+                concept=None,
+                pictogram_id=3255,
                 patterns=[
                     "sitzen", "ausruhen", "park", "spaziergang",
                     "picknick", "rasten", "pause", "draußen",

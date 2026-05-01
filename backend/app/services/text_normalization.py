@@ -72,10 +72,30 @@ PHRASE_SYNONYMS: dict[Language, list[tuple[str, str]]] = {
         ("automobile", "car"),
     ],
     Language.DE: [
+        # Termin-suffix glue (for compound matching by sliding window)
         ("augenarzt termin", "augenarzttermin"),
         ("hautarzt termin", "hautarzttermin"),
         ("kinderarzt termin", "kinderarzttermin"),
+        # Cross-WordNet equivalences and ARASAAC-vocabulary aliases.
+        # The right-hand side must be (or be findable via) an ARASAAC keyword.
         ("automobil", "auto"),
+        # Austrian regionalism — "Jause" is colloquial for snack/light meal.
+        # Also expand the compound form to bypass splitting.
+        ("nachmittagsjause", "nachmittag snack"),
+        ("nachmittag jause", "nachmittag snack"),
+        ("jause", "snack"),
+        # Specialist titles WordNet's German index does not cover —
+        # bypass splitting and synset traversal by mapping directly.
+        ("kieferorthopäde", "zahnarzt"),
+        ("kieferchirurg", "zahnarzt"),
+        ("orthodontie", "zahnarzt"),
+        # Compound nouns whose constituents aren't both ARASAAC keywords
+        # (so the splitter rejects them) but whose meaning resolves cleanly.
+        ("schwimmstunde", "schwimmen unterricht"),
+        ("schwimmkurs", "schwimmen unterricht"),
+        # Medical/admin vocabulary not in ARASAAC's German keywords.
+        ("verschreibung", "rezept"),
+        ("rezept abholen", "rezept abholen"),  # placeholder if you want this exact phrase
     ],
 }
 

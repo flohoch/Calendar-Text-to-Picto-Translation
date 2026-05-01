@@ -184,11 +184,16 @@ def _translate_single(attendee: str, language: Language,
             return _wrap(attendee, picto, MatchType.LEXICAL_DICT, chosen_concept)
 
     # Tier 3: Universal family/title lexical dictionary (whole-text match)
-    concept = lexical_dictionaries.get_attendee_lexical(lower, language)
-    if concept:
-        picto = _resolve_concept(concept, language)
-        if picto:
-            return _wrap(attendee, picto, MatchType.LEXICAL_DICT, concept)
+    concept_aliases = lexical_dictionaries.get_attendee_lexical(lower, language)
+    if concept_aliases:
+        for concept in concept_aliases:
+            picto = _resolve_concept(concept, language)
+            if picto:
+                return _wrap(attendee, picto, MatchType.LEXICAL_DICT, concept)
+        logger.info(
+            "[ATTENDEES] LEXICAL_DICT: '%s' had aliases %s but none resolved",
+            lower, concept_aliases,
+        )
 
     # Tier 4: NER PERSON detection → generic person pictogram
     nlp_result = nlp_service.process(attendee, language)

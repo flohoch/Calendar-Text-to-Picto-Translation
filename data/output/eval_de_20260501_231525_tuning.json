@@ -1,0 +1,4767 @@
+{
+  "run_id": "de_20260501_231525",
+  "language": "de",
+  "timestamp": "2026-05-01T23:15:26.771302Z",
+  "metrics": {
+    "total_entries": 52,
+    "coverage_summary": 0.9807692307692307,
+    "coverage_location": 0.5961538461538461,
+    "coverage_attendees": 0.28846153846153844,
+    "accuracy_summary": 0.8653846153846154,
+    "accuracy_location": 1.0,
+    "accuracy_attendees": 1.0,
+    "accuracy_overall": 1.0,
+    "precision_summary": 0.8654,
+    "recall_summary": 0.8654,
+    "f1_summary": 0.8654,
+    "precision_location": 1.0,
+    "recall_location": 1.0,
+    "f1_location": 1.0,
+    "precision_attendees": 1.0,
+    "recall_attendees": 1.0,
+    "f1_attendees": 1.0,
+    "precision_macro": 0.9551,
+    "recall_macro": 0.9551,
+    "f1_macro": 0.9551,
+    "pp_precision_summary": 0.8654,
+    "pp_recall_summary": 0.4284,
+    "pp_f1_summary": 0.5296,
+    "pp_precision_location": 1.0,
+    "pp_recall_location": 0.5374,
+    "pp_f1_location": 0.6727,
+    "pp_precision_attendees": 1.0,
+    "pp_recall_attendees": 0.3913,
+    "pp_f1_attendees": 0.5229,
+    "pp_precision_macro": 0.9551,
+    "pp_recall_macro": 0.4524,
+    "pp_f1_macro": 0.575,
+    "avg_confidence": 0.917,
+    "match_type_distribution": {
+      "EXACT": 76,
+      "SLIDING_WINDOW": 7,
+      "PERSONAL_RELATIONSHIP": 5,
+      "LEXICAL_DICT": 20,
+      "NER_PERSON_FALLBACK": 1,
+      "GENERIC_FALLBACK": 3,
+      "LEMMA": 4,
+      "DISAMBIGUATED": 2
+    },
+    "avg_unmatched_tokens_per_entry": 0.23
+  },
+  "entries": [
+    {
+      "id": "row_1777677325823",
+      "language": "de",
+      "summary": "Aufstehen",
+      "location": "zuhause",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6549
+        ]
+      ],
+      "expected_location": [
+        [
+          6964,
+          9861
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Aufstehen",
+          "matches": [
+            {
+              "pictogramId": 6549,
+              "imageUrl": "https://static.arasaac.org/pictograms/6549/6549_500.png",
+              "matchedTerm": "aufstehen",
+              "originalInput": "aufstehen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "aufstehen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "zuhause",
+          "matches": [
+            {
+              "pictogramId": 6964,
+              "imageUrl": "https://static.arasaac.org/pictograms/6964/6964_500.png",
+              "matchedTerm": "zuhause",
+              "originalInput": "zuhause",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Haus",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Haushalt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zuhause",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325847",
+      "language": "de",
+      "summary": "Zähne putzen",
+      "location": "Badezimmer",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6971,
+          2326,
+          27489,
+          31880
+        ]
+      ],
+      "expected_location": [
+        [
+          33954,
+          15905
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Zähne putzen",
+          "matches": [
+            {
+              "pictogramId": 2326,
+              "imageUrl": "https://static.arasaac.org/pictograms/2326/2326_500.png",
+              "matchedTerm": "zähne putzen",
+              "originalInput": "zähne putzen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Zähne putzen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Badezimmer",
+          "matches": [
+            {
+              "pictogramId": 33954,
+              "imageUrl": "https://static.arasaac.org/pictograms/33954/33954_500.png",
+              "matchedTerm": "badezimmer",
+              "originalInput": "badezimmer",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Badezimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Bad",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325863",
+      "language": "de",
+      "summary": "Duschen",
+      "location": "Badezimmer",
+      "attendees": "",
+      "expected_summary": [
+        [
+          26803,
+          32162,
+          2371,
+          27728
+        ]
+      ],
+      "expected_location": [
+        [
+          33954,
+          15905
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Duschen",
+          "matches": [
+            {
+              "pictogramId": 2371,
+              "imageUrl": "https://static.arasaac.org/pictograms/2371/2371_500.png",
+              "matchedTerm": "duschen",
+              "originalInput": "duschen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "duschen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Badezimmer",
+          "matches": [
+            {
+              "pictogramId": 33954,
+              "imageUrl": "https://static.arasaac.org/pictograms/33954/33954_500.png",
+              "matchedTerm": "badezimmer",
+              "originalInput": "badezimmer",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Badezimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Bad",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325880",
+      "language": "de",
+      "summary": "Haare waschen",
+      "location": "Badezimmer",
+      "attendees": "",
+      "expected_summary": [
+        [
+          8616,
+          8976,
+          35037
+        ]
+      ],
+      "expected_location": [
+        [
+          33954,
+          15905
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Haare waschen",
+          "matches": [
+            {
+              "pictogramId": 8616,
+              "imageUrl": "https://static.arasaac.org/pictograms/8616/8616_500.png",
+              "matchedTerm": "haare waschen",
+              "originalInput": "haare waschen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Haare waschen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Badezimmer",
+          "matches": [
+            {
+              "pictogramId": 33954,
+              "imageUrl": "https://static.arasaac.org/pictograms/33954/33954_500.png",
+              "matchedTerm": "badezimmer",
+              "originalInput": "badezimmer",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Badezimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Bad",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325897",
+      "language": "de",
+      "summary": "Hörgerät einsetzen",
+      "location": "zuhause",
+      "attendees": "",
+      "expected_summary": [
+        [
+          34278,
+          34280,
+          34279
+        ]
+      ],
+      "expected_location": [
+        [
+          6964,
+          9861
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Hörgerät einsetzen",
+          "matches": [
+            {
+              "pictogramId": 34279,
+              "imageUrl": "https://static.arasaac.org/pictograms/34279/34279_500.png",
+              "matchedTerm": "hörgerät einsetzen",
+              "originalInput": "hörgerät einsetzen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Hörgerät einsetzen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "zuhause",
+          "matches": [
+            {
+              "pictogramId": 6964,
+              "imageUrl": "https://static.arasaac.org/pictograms/6964/6964_500.png",
+              "matchedTerm": "zuhause",
+              "originalInput": "zuhause",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Haus",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Haushalt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zuhause",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325914",
+      "language": "de",
+      "summary": "Anziehen",
+      "location": "zuhause",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6627,
+          2781,
+          32135
+        ]
+      ],
+      "expected_location": [
+        [
+          6964,
+          9861
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Anziehen",
+          "matches": [
+            {
+              "pictogramId": 2781,
+              "imageUrl": "https://static.arasaac.org/pictograms/2781/2781_500.png",
+              "matchedTerm": "anziehen",
+              "originalInput": "anziehen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "anziehen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "ankleiden",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "zuhause",
+          "matches": [
+            {
+              "pictogramId": 6964,
+              "imageUrl": "https://static.arasaac.org/pictograms/6964/6964_500.png",
+              "matchedTerm": "zuhause",
+              "originalInput": "zuhause",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Haus",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Haushalt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zuhause",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325931",
+      "language": "de",
+      "summary": "Frühstück",
+      "location": "Küche",
+      "attendees": "Marina, Alex, Anna",
+      "expected_summary": [
+        [
+          4626,
+          4625,
+          7012,
+          28667
+        ]
+      ],
+      "expected_location": [
+        [
+          33070
+        ]
+      ],
+      "expected_attendees": [
+        [
+          37966,
+          2422
+        ],
+        [
+          2423,
+          37967
+        ],
+        [
+          38938,
+          38937
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Frühstück",
+          "matches": [
+            {
+              "pictogramId": 4626,
+              "imageUrl": "https://static.arasaac.org/pictograms/4626/4626_500.png",
+              "matchedTerm": "frühstück",
+              "originalInput": "frühstück",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Frühstück",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Küche",
+          "matches": [
+            {
+              "pictogramId": 33070,
+              "imageUrl": "https://static.arasaac.org/pictograms/33070/33070_500.png",
+              "matchedTerm": "küche",
+              "originalInput": "küche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Küche",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Marina",
+            "matches": [
+              {
+                "pictogramId": 2422,
+                "imageUrl": "https://static.arasaac.org/pictograms/2422/2422_500.png",
+                "matchedTerm": "Marina",
+                "originalInput": "Marina",
+                "matchType": "PERSONAL_RELATIONSHIP",
+                "confidence": 0.95,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Schwester",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          },
+          {
+            "originalAttendee": "Alex",
+            "matches": [
+              {
+                "pictogramId": 2423,
+                "imageUrl": "https://static.arasaac.org/pictograms/2423/2423_500.png",
+                "matchedTerm": "Alex",
+                "originalInput": "Alex",
+                "matchType": "PERSONAL_RELATIONSHIP",
+                "confidence": 0.95,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Bruder",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          },
+          {
+            "originalAttendee": "Anna",
+            "matches": [
+              {
+                "pictogramId": 38937,
+                "imageUrl": "https://static.arasaac.org/pictograms/38937/38937_500.png",
+                "matchedTerm": "Anna",
+                "originalInput": "Anna",
+                "matchType": "PERSONAL_RELATIONSHIP",
+                "confidence": 0.95,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Freundin",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Partnerin",
+                    "hasLocution": false,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677325954",
+      "language": "de",
+      "summary": "Jause",
+      "location": "Werkstatt Aufenthaltsraum",
+      "attendees": "",
+      "expected_summary": [
+        [
+          28414,
+          28413,
+          28207,
+          28206,
+          28205,
+          28415,
+          24854
+        ]
+      ],
+      "expected_location": [
+        [
+          6225,
+          9805,
+          11655,
+          24645,
+          32424
+        ],
+        [
+          39108,
+          9911
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Jause",
+          "matches": [
+            {
+              "pictogramId": 24854,
+              "imageUrl": "https://static.arasaac.org/pictograms/24854/24854_500.png",
+              "matchedTerm": "snack",
+              "originalInput": "snack",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Vorspeise",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Aperitif",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Snack",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tapas",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Werkstatt Aufenthaltsraum",
+          "matches": [
+            {
+              "pictogramId": 6225,
+              "imageUrl": "https://static.arasaac.org/pictograms/6225/6225_500.png",
+              "matchedTerm": "werkstatt",
+              "originalInput": "werkstatt",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Werkstatt",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 39108,
+              "imageUrl": "https://static.arasaac.org/pictograms/39108/39108_500.png",
+              "matchedTerm": "aufenthaltsraum",
+              "originalInput": "aufenthaltsraum",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Aufenthaltsraum",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325972",
+      "language": "de",
+      "summary": "Mittagessen",
+      "location": "Speisesaal",
+      "attendees": "",
+      "expected_summary": [
+        [
+          38057,
+          28669,
+          4611,
+          6990,
+          4609
+        ]
+      ],
+      "expected_location": [
+        [
+          11655,
+          9824
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Mittagessen",
+          "matches": [
+            {
+              "pictogramId": 4611,
+              "imageUrl": "https://static.arasaac.org/pictograms/4611/4611_500.png",
+              "matchedTerm": "mittagessen",
+              "originalInput": "mittagessen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Mittagessen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Speisesaal",
+          "matches": [
+            {
+              "pictogramId": 9824,
+              "imageUrl": "https://static.arasaac.org/pictograms/9824/9824_500.png",
+              "matchedTerm": "speisesaal",
+              "originalInput": "speisesaal",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Esszimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Speisesaal",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677325990",
+      "language": "de",
+      "summary": "Nachmittagsjause",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          4695,
+          37841,
+          4694,
+          28835
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Nachmittagsjause",
+          "matches": [
+            {
+              "pictogramId": 7268,
+              "imageUrl": "https://static.arasaac.org/pictograms/7268/7268_500.png",
+              "matchedTerm": "nachmittag",
+              "originalInput": "nachmittag",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Nachmittag",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 24854,
+              "imageUrl": "https://static.arasaac.org/pictograms/24854/24854_500.png",
+              "matchedTerm": "snack",
+              "originalInput": "snack",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Vorspeise",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Aperitif",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Snack",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tapas",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326003",
+      "language": "de",
+      "summary": "Abendessen kochen",
+      "location": "Küche",
+      "attendees": "Mama",
+      "expected_summary": [
+        [
+          30526,
+          6985,
+          3235,
+          6984,
+          2342
+        ],
+        [
+          38057,
+          4611,
+          4592
+        ]
+      ],
+      "expected_location": [
+        [
+          33070
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2458,
+          31148
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Abendessen kochen",
+          "matches": [
+            {
+              "pictogramId": 4592,
+              "imageUrl": "https://static.arasaac.org/pictograms/4592/4592_500.png",
+              "matchedTerm": "abendessen",
+              "originalInput": "abendessen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Abendessen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 2342,
+              "imageUrl": "https://static.arasaac.org/pictograms/2342/2342_500.png",
+              "matchedTerm": "kochen",
+              "originalInput": "kochen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "kochen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Küche",
+          "matches": [
+            {
+              "pictogramId": 33070,
+              "imageUrl": "https://static.arasaac.org/pictograms/33070/33070_500.png",
+              "matchedTerm": "küche",
+              "originalInput": "küche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Küche",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Mama",
+            "matches": [
+              {
+                "pictogramId": 2458,
+                "imageUrl": "https://static.arasaac.org/pictograms/2458/2458_500.png",
+                "matchedTerm": "Mama",
+                "originalInput": "Mama",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Mutter",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Mama",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326023",
+      "language": "de",
+      "summary": "Pizza essen",
+      "location": "Pizzeria Vecchia, Wien 16",
+      "attendees": "Alex",
+      "expected_summary": [
+        [
+          2527
+        ],
+        [
+          38057,
+          4611,
+          4592,
+          2349
+        ]
+      ],
+      "expected_location": [
+        [
+          32448,
+          11344
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2423,
+          37967
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Pizza essen",
+          "matches": [
+            {
+              "pictogramId": 2527,
+              "imageUrl": "https://static.arasaac.org/pictograms/2527/2527_500.png",
+              "matchedTerm": "pizza",
+              "originalInput": "pizza",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Pizza",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 2349,
+              "imageUrl": "https://static.arasaac.org/pictograms/2349/2349_500.png",
+              "matchedTerm": "essen",
+              "originalInput": "essen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "essen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "zu sich nehmen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Pizzeria Vecchia, Wien 16",
+          "matches": [
+            {
+              "pictogramId": 11344,
+              "imageUrl": "https://static.arasaac.org/pictograms/11344/11344_500.png",
+              "matchedTerm": "pizzeria",
+              "originalInput": "pizzeria",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Pizzeria",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "vecchia",
+            "wien"
+          ]
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Alex",
+            "matches": [
+              {
+                "pictogramId": 2423,
+                "imageUrl": "https://static.arasaac.org/pictograms/2423/2423_500.png",
+                "matchedTerm": "Alex",
+                "originalInput": "Alex",
+                "matchType": "PERSONAL_RELATIONSHIP",
+                "confidence": 0.95,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Bruder",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326047",
+      "language": "de",
+      "summary": "Kaffee",
+      "location": "Café Sperl, Wien",
+      "attendees": "Mama, Papa",
+      "expected_summary": [
+        [
+          2296,
+          24479
+        ]
+      ],
+      "expected_location": [
+        [
+          32400,
+          37337,
+          28889
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2458,
+          31148
+        ],
+        [
+          2497
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Kaffee",
+          "matches": [
+            {
+              "pictogramId": 2296,
+              "imageUrl": "https://static.arasaac.org/pictograms/2296/2296_500.png",
+              "matchedTerm": "kaffee",
+              "originalInput": "kaffee",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Kaffee",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Café Sperl, Wien",
+          "matches": [
+            {
+              "pictogramId": 28889,
+              "imageUrl": "https://static.arasaac.org/pictograms/28889/28889_500.png",
+              "matchedTerm": "café",
+              "originalInput": "Café Sperl, Wien",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Café-Bar",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Kaffeebar",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Café",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Coffeeshop",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Mama",
+            "matches": [
+              {
+                "pictogramId": 2458,
+                "imageUrl": "https://static.arasaac.org/pictograms/2458/2458_500.png",
+                "matchedTerm": "Mama",
+                "originalInput": "Mama",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Mutter",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Mama",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          },
+          {
+            "originalAttendee": "Papa",
+            "matches": [
+              {
+                "pictogramId": 2497,
+                "imageUrl": "https://static.arasaac.org/pictograms/2497/2497_500.png",
+                "matchedTerm": "Papa",
+                "originalInput": "Papa",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Vater",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326067",
+      "language": "de",
+      "summary": "Eis essen",
+      "location": "Eisdiele Tichy, Wien",
+      "attendees": "Lisa",
+      "expected_summary": [
+        [
+          24208,
+          17044,
+          17042,
+          7128
+        ],
+        [
+          3348,
+          39483,
+          2349
+        ]
+      ],
+      "expected_location": [
+        [
+          3347,
+          6520
+        ]
+      ],
+      "expected_attendees": [
+        [
+          34560
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Eis essen",
+          "matches": [
+            {
+              "pictogramId": 7128,
+              "imageUrl": "https://static.arasaac.org/pictograms/7128/7128_500.png",
+              "matchedTerm": "eis",
+              "originalInput": "eis",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Eis",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Eiswürfel",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Würfel",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 2349,
+              "imageUrl": "https://static.arasaac.org/pictograms/2349/2349_500.png",
+              "matchedTerm": "essen",
+              "originalInput": "essen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "essen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "zu sich nehmen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Eisdiele Tichy, Wien",
+          "matches": [
+            {
+              "pictogramId": 3347,
+              "imageUrl": "https://static.arasaac.org/pictograms/3347/3347_500.png",
+              "matchedTerm": "eisdiele",
+              "originalInput": "eisdiele",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Eisdiele",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "tichy",
+            "wien"
+          ]
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Lisa",
+            "matches": [
+              {
+                "pictogramId": 34560,
+                "imageUrl": "https://static.arasaac.org/pictograms/34560/34560_500.png",
+                "matchedTerm": "Lisa",
+                "originalInput": "Lisa",
+                "matchType": "NER_PERSON_FALLBACK",
+                "confidence": 0.5,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Person",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326096",
+      "language": "de",
+      "summary": "Geburtstagstorte backen",
+      "location": "Küche",
+      "attendees": "Mama",
+      "expected_summary": [
+        [
+          5487
+        ],
+        [
+          2579,
+          25488
+        ]
+      ],
+      "expected_location": [
+        [
+          33070
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2458,
+          31148
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Geburtstagstorte backen",
+          "matches": [
+            {
+              "pictogramId": 25488,
+              "imageUrl": "https://static.arasaac.org/pictograms/25488/25488_500.png",
+              "matchedTerm": "geburtstagstorte",
+              "originalInput": "geburtstagstorte",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Torte",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Geburtstagstorte",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 5487,
+              "imageUrl": "https://static.arasaac.org/pictograms/5487/5487_500.png",
+              "matchedTerm": "backen",
+              "originalInput": "backen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "backen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Küche",
+          "matches": [
+            {
+              "pictogramId": 33070,
+              "imageUrl": "https://static.arasaac.org/pictograms/33070/33070_500.png",
+              "matchedTerm": "küche",
+              "originalInput": "küche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Küche",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Mama",
+            "matches": [
+              {
+                "pictogramId": 2458,
+                "imageUrl": "https://static.arasaac.org/pictograms/2458/2458_500.png",
+                "matchedTerm": "Mama",
+                "originalInput": "Mama",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Mutter",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Mama",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326118",
+      "language": "de",
+      "summary": "Wäsche waschen",
+      "location": "Waschküche",
+      "attendees": "",
+      "expected_summary": [
+        [
+          5496
+        ]
+      ],
+      "expected_location": [
+        [
+          29841,
+          26168
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Wäsche waschen",
+          "matches": [
+            {
+              "pictogramId": 5496,
+              "imageUrl": "https://static.arasaac.org/pictograms/5496/5496_500.png",
+              "matchedTerm": "wäsche waschen",
+              "originalInput": "wäsche waschen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Wäsche waschen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Waschküche",
+          "matches": [
+            {
+              "pictogramId": 26168,
+              "imageUrl": "https://static.arasaac.org/pictograms/26168/26168_500.png",
+              "matchedTerm": "waschküche",
+              "originalInput": "waschküche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Waschküche",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326139",
+      "language": "de",
+      "summary": "Wäsche aufhängen",
+      "location": "Schlafzimmer",
+      "attendees": "",
+      "expected_summary": [
+        [
+          15736
+        ],
+        [
+          5593
+        ]
+      ],
+      "expected_location": [
+        [
+          5988
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Wäsche aufhängen",
+          "matches": [
+            {
+              "pictogramId": 15736,
+              "imageUrl": "https://static.arasaac.org/pictograms/15736/15736_500.png",
+              "matchedTerm": "wäsche",
+              "originalInput": "wäsche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Wäscherei",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Wäsche",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 5593,
+              "imageUrl": "https://static.arasaac.org/pictograms/5593/5593_500.png",
+              "matchedTerm": "aufhängen",
+              "originalInput": "aufhängen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "aufhängen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Schlafzimmer",
+          "matches": [
+            {
+              "pictogramId": 5988,
+              "imageUrl": "https://static.arasaac.org/pictograms/5988/5988_500.png",
+              "matchedTerm": "schlafzimmer",
+              "originalInput": "schlafzimmer",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Schlafzimmer",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326158",
+      "language": "de",
+      "summary": "Bügeln",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          2528,
+          2830,
+          26330,
+          26331
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Bügeln",
+          "matches": [
+            {
+              "pictogramId": 2830,
+              "imageUrl": "https://static.arasaac.org/pictograms/2830/2830_500.png",
+              "matchedTerm": "bügeln",
+              "originalInput": "bügeln",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "bügeln",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326171",
+      "language": "de",
+      "summary": "Zimmer Staubsaugen",
+      "location": "zuhause",
+      "attendees": "",
+      "expected_summary": [
+        [
+          3227,
+          4877,
+          16443,
+          29740
+        ]
+      ],
+      "expected_location": [
+        [
+          6964,
+          9861
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Zimmer Staubsaugen",
+          "matches": [
+            {
+              "pictogramId": 4877,
+              "imageUrl": "https://static.arasaac.org/pictograms/4877/4877_500.png",
+              "matchedTerm": "staubsaugen",
+              "originalInput": "staubsaugen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "aufsaugen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "staubsaugen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "zimmer"
+          ]
+        },
+        "location": {
+          "originalText": "zuhause",
+          "matches": [
+            {
+              "pictogramId": 6964,
+              "imageUrl": "https://static.arasaac.org/pictograms/6964/6964_500.png",
+              "matchedTerm": "zuhause",
+              "originalInput": "zuhause",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Haus",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Haushalt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zuhause",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326191",
+      "language": "de",
+      "summary": "Bad putzen",
+      "location": "Bad",
+      "attendees": "",
+      "expected_summary": [
+        [
+          33954,
+          15905,
+          3323
+        ]
+      ],
+      "expected_location": [
+        [
+          33954,
+          15905
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Bad putzen",
+          "matches": [
+            {
+              "pictogramId": 3323,
+              "imageUrl": "https://static.arasaac.org/pictograms/3323/3323_500.png",
+              "matchedTerm": "putzen",
+              "originalInput": "putzen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "wischen",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "putzen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "mobben",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "feudeln",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Bad",
+          "matches": [
+            {
+              "pictogramId": 33954,
+              "imageUrl": "https://static.arasaac.org/pictograms/33954/33954_500.png",
+              "matchedTerm": "bad",
+              "originalInput": "bad",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Badezimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Bad",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326211",
+      "language": "de",
+      "summary": "WC putzen",
+      "location": "Bad",
+      "attendees": "",
+      "expected_summary": [
+        [
+          2430
+        ],
+        [
+          3323
+        ]
+      ],
+      "expected_location": [
+        [
+          33954,
+          15905
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "WC putzen",
+          "matches": [
+            {
+              "pictogramId": 2430,
+              "imageUrl": "https://static.arasaac.org/pictograms/2430/2430_500.png",
+              "matchedTerm": "wc",
+              "originalInput": "wc",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "WC",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Toilette",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 3323,
+              "imageUrl": "https://static.arasaac.org/pictograms/3323/3323_500.png",
+              "matchedTerm": "putzen",
+              "originalInput": "putzen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "wischen",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "putzen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "mobben",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "feudeln",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Bad",
+          "matches": [
+            {
+              "pictogramId": 33954,
+              "imageUrl": "https://static.arasaac.org/pictograms/33954/33954_500.png",
+              "matchedTerm": "bad",
+              "originalInput": "bad",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Badezimmer",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Bad",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326230",
+      "language": "de",
+      "summary": "Müll rausbringen",
+      "location": "Mülltonne",
+      "attendees": "",
+      "expected_summary": [
+        [
+          27208
+        ]
+      ],
+      "expected_location": [
+        [
+          38205,
+          38208,
+          2355,
+          37417
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Müll rausbringen",
+          "matches": [
+            {
+              "pictogramId": 8499,
+              "imageUrl": "https://static.arasaac.org/pictograms/8499/8499_500.png",
+              "matchedTerm": "müll",
+              "originalInput": "müll",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Müll",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Abfall",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "rausbringen"
+          ]
+        },
+        "location": {
+          "originalText": "Mülltonne",
+          "matches": [
+            {
+              "pictogramId": 2355,
+              "imageUrl": "https://static.arasaac.org/pictograms/2355/2355_500.png",
+              "matchedTerm": "mülltonne",
+              "originalInput": "mülltonne",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Mülltonne",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Müllcontainer",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326251",
+      "language": "de",
+      "summary": "Lebensmittel einkaufen",
+      "location": "Hofer",
+      "attendees": "",
+      "expected_summary": [
+        [
+          4610
+        ],
+        [
+          8985
+        ]
+      ],
+      "expected_location": [
+        [
+          3389,
+          6618
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Lebensmittel einkaufen",
+          "matches": [
+            {
+              "pictogramId": 4610,
+              "imageUrl": "https://static.arasaac.org/pictograms/4610/4610_500.png",
+              "matchedTerm": "lebensmittel",
+              "originalInput": "lebensmittel",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Essen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Lebensmittel",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 8985,
+              "imageUrl": "https://static.arasaac.org/pictograms/8985/8985_500.png",
+              "matchedTerm": "einkaufen",
+              "originalInput": "einkaufen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "einkaufen gehen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "kaufen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "einkaufen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "Einkäufe machen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Hofer",
+          "matches": [
+            {
+              "pictogramId": 3389,
+              "imageUrl": "https://static.arasaac.org/pictograms/3389/3389_500.png",
+              "matchedTerm": "supermarkt",
+              "originalInput": "Hofer",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Supermarkt",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326272",
+      "language": "de",
+      "summary": "Einkaufsliste schreiben",
+      "location": "Zuhause",
+      "attendees": "Betreuerin Sabine",
+      "expected_summary": [
+        [
+          2380,
+          8107
+        ],
+        [
+          7144
+        ]
+      ],
+      "expected_location": [
+        [
+          6964,
+          9861
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2476,
+          3267,
+          7163,
+          32983,
+          32982,
+          15992,
+          38411
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Einkaufsliste schreiben",
+          "matches": [
+            {
+              "pictogramId": 7144,
+              "imageUrl": "https://static.arasaac.org/pictograms/7144/7144_500.png",
+              "matchedTerm": "einkaufsliste",
+              "originalInput": "einkaufsliste",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Einkaufszettel",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Einkaufsliste",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Shoppingliste",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 2380,
+              "imageUrl": "https://static.arasaac.org/pictograms/2380/2380_500.png",
+              "matchedTerm": "schreiben",
+              "originalInput": "schreiben",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "schreiben",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Schrift ",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Zuhause",
+          "matches": [
+            {
+              "pictogramId": 6964,
+              "imageUrl": "https://static.arasaac.org/pictograms/6964/6964_500.png",
+              "matchedTerm": "zuhause",
+              "originalInput": "zuhause",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Haus",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Haushalt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zuhause",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Betreuerin Sabine",
+            "matches": [
+              {
+                "pictogramId": 7163,
+                "imageUrl": "https://static.arasaac.org/pictograms/7163/7163_500.png",
+                "matchedTerm": "Betreuerin Sabine",
+                "originalInput": "Betreuerin Sabine",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Betreuer",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Pfleger",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326294",
+      "language": "de",
+      "summary": "Werkstatt",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6225,
+          9805,
+          11655,
+          24645,
+          32424
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Werkstatt",
+          "matches": [
+            {
+              "pictogramId": 6225,
+              "imageUrl": "https://static.arasaac.org/pictograms/6225/6225_500.png",
+              "matchedTerm": "werkstatt",
+              "originalInput": "werkstatt",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Werkstatt",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326306",
+      "language": "de",
+      "summary": "Fließbandarbeit",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          39263
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Fließbandarbeit",
+          "matches": [
+            {
+              "pictogramId": 39263,
+              "imageUrl": "https://static.arasaac.org/pictograms/39263/39263_500.png",
+              "matchedTerm": "fließbandarbeit",
+              "originalInput": "fließbandarbeit",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Fließbandarbeit",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326318",
+      "language": "de",
+      "summary": "Vogelhäuschen machen",
+      "location": "Tischlerei",
+      "attendees": "",
+      "expected_summary": [
+        [
+          39265
+        ]
+      ],
+      "expected_location": [
+        [
+          16471
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Vogelhäuschen machen",
+          "matches": [
+            {
+              "pictogramId": 39265,
+              "imageUrl": "https://static.arasaac.org/pictograms/39265/39265_500.png",
+              "matchedTerm": "vogelhäuschen",
+              "originalInput": "vogelhäuschen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Vogelhäuschen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Tischlerei",
+          "matches": [
+            {
+              "pictogramId": 16471,
+              "imageUrl": "https://static.arasaac.org/pictograms/16471/16471_500.png",
+              "matchedTerm": "tischlerei",
+              "originalInput": "tischlerei",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Schreinerei",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tischlerei",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326336",
+      "language": "de",
+      "summary": "Kerzen machen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6242,
+          37302
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Kerzen machen",
+          "matches": [
+            {
+              "pictogramId": 37302,
+              "imageUrl": "https://static.arasaac.org/pictograms/37302/37302_500.png",
+              "matchedTerm": "kerzen",
+              "originalInput": "kerzen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Kerze",
+                  "hasLocution": true,
+                  "plural": "Kerzen"
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326349",
+      "language": "de",
+      "summary": "Töpfer klasse",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          16453,
+          30975,
+          36147
+        ],
+        [
+          7063
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Töpfer klasse",
+          "matches": [],
+          "unmatchedTokens": [
+            "töpfer",
+            "klasse"
+          ]
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326362",
+      "language": "de",
+      "summary": "Lesenachhilfe",
+      "location": "",
+      "attendees": "Lehrerin Wagner",
+      "expected_summary": [
+        [
+          2447
+        ],
+        [
+          33080
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [
+        [
+          6555,
+          6556,
+          2457,
+          2456,
+          28003,
+          28002
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Lesenachhilfe",
+          "matches": [
+            {
+              "pictogramId": 8008,
+              "imageUrl": "https://static.arasaac.org/pictograms/8008/8008_500.png",
+              "matchedTerm": "aktivität",
+              "originalInput": "Lesenachhilfe",
+              "matchType": "GENERIC_FALLBACK",
+              "confidence": 0.3,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Beschäftigung",
+                  "hasLocution": true,
+                  "plural": "Beschäftigungen"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tätigkeit",
+                  "hasLocution": false,
+                  "plural": "Tätigkeiten"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Aktivität",
+                  "hasLocution": false,
+                  "plural": "Aktivitäten"
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "lesenachhilfe"
+          ]
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Lehrerin Wagner",
+            "matches": [
+              {
+                "pictogramId": 2457,
+                "imageUrl": "https://static.arasaac.org/pictograms/2457/2457_500.png",
+                "matchedTerm": "Lehrerin Wagner",
+                "originalInput": "Lehrerin Wagner",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Lehrer",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": false,
+      "location_correct": null,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326376",
+      "language": "de",
+      "summary": "Werkstatt Tag der offenen Tür",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6225,
+          9805,
+          11655,
+          24645,
+          32424
+        ],
+        [
+          36698
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Werkstatt Tag der offenen Tür",
+          "matches": [
+            {
+              "pictogramId": 36698,
+              "imageUrl": "https://static.arasaac.org/pictograms/36698/36698_500.png",
+              "matchedTerm": "tag der offenen tür",
+              "originalInput": "tag der offenen tür",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Tag der offenen Tür",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 6225,
+              "imageUrl": "https://static.arasaac.org/pictograms/6225/6225_500.png",
+              "matchedTerm": "werkstatt",
+              "originalInput": "werkstatt",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Werkstatt",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326391",
+      "language": "de",
+      "summary": "Bewerbungstraining",
+      "location": "AMS Wien",
+      "attendees": "",
+      "expected_summary": [
+        [
+          39176,
+          19555
+        ],
+        [
+          26636,
+          37810,
+          8029,
+          35979,
+          37776,
+          37196
+        ]
+      ],
+      "expected_location": [
+        [
+          24637,
+          24638
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Bewerbungstraining",
+          "matches": [
+            {
+              "pictogramId": 8008,
+              "imageUrl": "https://static.arasaac.org/pictograms/8008/8008_500.png",
+              "matchedTerm": "aktivität",
+              "originalInput": "Bewerbungstraining",
+              "matchType": "GENERIC_FALLBACK",
+              "confidence": 0.3,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Beschäftigung",
+                  "hasLocution": true,
+                  "plural": "Beschäftigungen"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tätigkeit",
+                  "hasLocution": false,
+                  "plural": "Tätigkeiten"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Aktivität",
+                  "hasLocution": false,
+                  "plural": "Aktivitäten"
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "bewerbungstraining"
+          ]
+        },
+        "location": {
+          "originalText": "AMS Wien",
+          "matches": [
+            {
+              "pictogramId": 24637,
+              "imageUrl": "https://static.arasaac.org/pictograms/24637/24637_500.png",
+              "matchedTerm": "arbeitsamt",
+              "originalInput": "AMS Wien",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Arbeitsamt",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Jobcenter",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326413",
+      "language": "de",
+      "summary": "Bewerbungsgespräch",
+      "location": "Spar",
+      "attendees": "",
+      "expected_summary": [
+        [
+          39176,
+          19555
+        ],
+        [
+          23402
+        ]
+      ],
+      "expected_location": [
+        [
+          3389,
+          6618
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Bewerbungsgespräch",
+          "matches": [
+            {
+              "pictogramId": 8008,
+              "imageUrl": "https://static.arasaac.org/pictograms/8008/8008_500.png",
+              "matchedTerm": "aktivität",
+              "originalInput": "Bewerbungsgespräch",
+              "matchType": "GENERIC_FALLBACK",
+              "confidence": 0.3,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Beschäftigung",
+                  "hasLocution": true,
+                  "plural": "Beschäftigungen"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Tätigkeit",
+                  "hasLocution": false,
+                  "plural": "Tätigkeiten"
+                },
+                {
+                  "type": 2,
+                  "keyword": "Aktivität",
+                  "hasLocution": false,
+                  "plural": "Aktivitäten"
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "bewerbungsgespräch"
+          ]
+        },
+        "location": {
+          "originalText": "Spar",
+          "matches": [
+            {
+              "pictogramId": 3389,
+              "imageUrl": "https://static.arasaac.org/pictograms/3389/3389_500.png",
+              "matchedTerm": "supermarkt",
+              "originalInput": "Spar",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Supermarkt",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326436",
+      "language": "de",
+      "summary": "Bus nehmen",
+      "location": "Bushaltestelle Schellhammergasse",
+      "attendees": "Betreuerin Sabine",
+      "expected_summary": [
+        [
+          36595,
+          36594,
+          28173
+        ]
+      ],
+      "expected_location": [
+        [
+          2499,
+          35407
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2476,
+          3267,
+          7163,
+          32983,
+          32982,
+          15992,
+          38411
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Bus nehmen",
+          "matches": [
+            {
+              "pictogramId": 28173,
+              "imageUrl": "https://static.arasaac.org/pictograms/28173/28173_500.png",
+              "matchedTerm": "bus nehmen",
+              "originalInput": "bus nehmen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "reisen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Reisender",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "Bus nehmen",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Reisende",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Bushaltestelle Schellhammergasse",
+          "matches": [
+            {
+              "pictogramId": 2499,
+              "imageUrl": "https://static.arasaac.org/pictograms/2499/2499_500.png",
+              "matchedTerm": "bushaltestelle",
+              "originalInput": "bushaltestelle",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Bushaltestelle",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": [
+            "schellhammergasse"
+          ]
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Betreuerin Sabine",
+            "matches": [
+              {
+                "pictogramId": 7163,
+                "imageUrl": "https://static.arasaac.org/pictograms/7163/7163_500.png",
+                "matchedTerm": "Betreuerin Sabine",
+                "originalInput": "Betreuerin Sabine",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Betreuer",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Pfleger",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326461",
+      "language": "de",
+      "summary": "Logopädie",
+      "location": "",
+      "attendees": "Logopädin Bauer",
+      "expected_summary": [
+        [
+          32428,
+          6142
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [
+        [
+          32911,
+          2454,
+          32910,
+          6141,
+          23396,
+          37355
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Logopädie",
+          "matches": [
+            {
+              "pictogramId": 6142,
+              "imageUrl": "https://static.arasaac.org/pictograms/6142/6142_500.png",
+              "matchedTerm": "logopädie",
+              "originalInput": "logopädie",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Logopädie",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Sprechtherapie",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Logopädin Bauer",
+            "matches": [
+              {
+                "pictogramId": 6141,
+                "imageUrl": "https://static.arasaac.org/pictograms/6141/6141_500.png",
+                "matchedTerm": "Logopädin Bauer",
+                "originalInput": "Logopädin Bauer",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Logopäde",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326478",
+      "language": "de",
+      "summary": "Augenärztliche Untersuchung",
+      "location": "",
+      "attendees": "Dr Wagner",
+      "expected_summary": [
+        [
+          27143,
+          27142,
+          33114
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [
+        [
+          16365,
+          16367,
+          38824,
+          11320
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Augenärztliche Untersuchung",
+          "matches": [
+            {
+              "pictogramId": 27142,
+              "imageUrl": "https://static.arasaac.org/pictograms/27142/27142_500.png",
+              "matchedTerm": "untersuchung",
+              "originalInput": "untersuchung",
+              "matchType": "LEMMA",
+              "confidence": 0.8,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "ärztliche Untersuchung",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "medizinischer Kontrolltermin",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Gesundheitscheck",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Dr Wagner",
+            "matches": [
+              {
+                "pictogramId": 11320,
+                "imageUrl": "https://static.arasaac.org/pictograms/11320/11320_500.png",
+                "matchedTerm": "Dr Wagner",
+                "originalInput": "Dr Wagner",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Augenarzt",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Ophtalmologe",
+                    "hasLocution": false,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Optiker",
+                    "hasLocution": false,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326498",
+      "language": "de",
+      "summary": "Zahnärztliche Untersuchung",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          27143,
+          27142,
+          33114
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Zahnärztliche Untersuchung",
+          "matches": [
+            {
+              "pictogramId": 27142,
+              "imageUrl": "https://static.arasaac.org/pictograms/27142/27142_500.png",
+              "matchedTerm": "untersuchung",
+              "originalInput": "untersuchung",
+              "matchType": "LEMMA",
+              "confidence": 0.8,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "ärztliche Untersuchung",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "medizinischer Kontrolltermin",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Gesundheitscheck",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326516",
+      "language": "de",
+      "summary": "Professionelle Zahnreinigung",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          39216
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Professionelle Zahnreinigung",
+          "matches": [
+            {
+              "pictogramId": 39216,
+              "imageUrl": "https://static.arasaac.org/pictograms/39216/39216_500.png",
+              "matchedTerm": "zahnreinigung",
+              "originalInput": "zahnreinigung",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Zahnreinigung",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326535",
+      "language": "de",
+      "summary": "Friseurtermin",
+      "location": "Friseur Bundy, Wien",
+      "attendees": "",
+      "expected_summary": [
+        [
+          6588,
+          2849,
+          11333,
+          2512
+        ],
+        [
+          16165
+        ]
+      ],
+      "expected_location": [
+        [
+          6587,
+          2850
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Friseurtermin",
+          "matches": [
+            {
+              "pictogramId": 2849,
+              "imageUrl": "https://static.arasaac.org/pictograms/2849/2849_500.png",
+              "matchedTerm": "friseur",
+              "originalInput": "friseur",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Friseur",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 16165,
+              "imageUrl": "https://static.arasaac.org/pictograms/16165/16165_500.png",
+              "matchedTerm": "termin",
+              "originalInput": "termin",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Termin",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Friseur Bundy, Wien",
+          "matches": [
+            {
+              "pictogramId": 2850,
+              "imageUrl": "https://static.arasaac.org/pictograms/2850/2850_500.png",
+              "matchedTerm": "friseursalon",
+              "originalInput": "Friseur Bundy, Wien",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Friseursalon",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326559",
+      "language": "de",
+      "summary": "Verschreibung abholen",
+      "location": "Apotheke",
+      "attendees": "",
+      "expected_summary": [
+        [
+          10148,
+          32773,
+          32773,
+          6453,
+          6452,
+          35019,
+          9072
+        ],
+        [
+          38606
+        ]
+      ],
+      "expected_location": [
+        [
+          37368,
+          6497,
+          3313,
+          36835,
+          36836,
+          36837,
+          36838,
+          38352
+        ]
+      ],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Verschreibung abholen",
+          "matches": [
+            {
+              "pictogramId": 7805,
+              "imageUrl": "https://static.arasaac.org/pictograms/7805/7805_500.png",
+              "matchedTerm": "rezept",
+              "originalInput": "rezept",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Rezept",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 8679,
+              "imageUrl": "https://static.arasaac.org/pictograms/8679/8679_500.png",
+              "matchedTerm": "abholen",
+              "originalInput": "abholen",
+              "matchType": "LEMMA",
+              "confidence": 0.8,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Müll abholen",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "Müll einsammeln",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Apotheke",
+          "matches": [
+            {
+              "pictogramId": 3313,
+              "imageUrl": "https://static.arasaac.org/pictograms/3313/3313_500.png",
+              "matchedTerm": "apotheke",
+              "originalInput": "Apotheke",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Apotheke",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": false,
+      "location_correct": true,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326580",
+      "language": "de",
+      "summary": "Gesicht waschen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          34611,
+          34777,
+          34775,
+          4939
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Gesicht waschen",
+          "matches": [
+            {
+              "pictogramId": 4939,
+              "imageUrl": "https://static.arasaac.org/pictograms/4939/4939_500.png",
+              "matchedTerm": "gesicht waschen",
+              "originalInput": "gesicht waschen",
+              "matchType": "SLIDING_WINDOW",
+              "confidence": 1.0,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Gesicht waschen",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "Gesicht einseifen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326593",
+      "language": "de",
+      "summary": "Woche planen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          37732,
+          37372,
+          7244,
+          24601
+        ],
+        [
+          35671,
+          35651,
+          11706,
+          34870
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Woche planen",
+          "matches": [
+            {
+              "pictogramId": 7244,
+              "imageUrl": "https://static.arasaac.org/pictograms/7244/7244_500.png",
+              "matchedTerm": "woche",
+              "originalInput": "woche",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 6,
+                  "keyword": "Woche",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 11706,
+              "imageUrl": "https://static.arasaac.org/pictograms/11706/11706_500.png",
+              "matchedTerm": "planen",
+              "originalInput": "planen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "planen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326606",
+      "language": "de",
+      "summary": "Chor singen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          2717,
+          39268
+        ],
+        [
+          6960,
+          2315,
+          28657,
+          32015
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Chor singen",
+          "matches": [
+            {
+              "pictogramId": 2717,
+              "imageUrl": "https://static.arasaac.org/pictograms/2717/2717_500.png",
+              "matchedTerm": "chor",
+              "originalInput": "chor",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Chor",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 2315,
+              "imageUrl": "https://static.arasaac.org/pictograms/2315/2315_500.png",
+              "matchedTerm": "singen",
+              "originalInput": "singen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "singen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326620",
+      "language": "de",
+      "summary": "Schwimmstunde",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          25038
+        ],
+        [
+          7063,
+          26636,
+          37810,
+          8029,
+          35979,
+          37776,
+          7063,
+          13634
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Schwimmstunde",
+          "matches": [
+            {
+              "pictogramId": 25038,
+              "imageUrl": "https://static.arasaac.org/pictograms/25038/25038_500.png",
+              "matchedTerm": "schwimmen",
+              "originalInput": "schwimmen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "Schwimmen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "Kraulen",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 13634,
+              "imageUrl": "https://static.arasaac.org/pictograms/13634/13634_500.png",
+              "matchedTerm": "unterricht",
+              "originalInput": "unterricht",
+              "matchType": "LEMMA",
+              "confidence": 0.8,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Kunstunterricht",
+                  "hasLocution": false,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Unterricht für plastische Kunst",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326634",
+      "language": "de",
+      "summary": "Termin",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          16165
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Termin",
+          "matches": [
+            {
+              "pictogramId": 16165,
+              "imageUrl": "https://static.arasaac.org/pictograms/16165/16165_500.png",
+              "matchedTerm": "termin",
+              "originalInput": "termin",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Termin",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326646",
+      "language": "de",
+      "summary": "Zahnarzttermin",
+      "location": "AKH Wien",
+      "attendees": "Dr. Heinz",
+      "expected_summary": [
+        [
+          39141,
+          38886,
+          38834,
+          2733,
+          11229
+        ],
+        [
+          16165
+        ]
+      ],
+      "expected_location": [
+        [
+          38083,
+          3116
+        ]
+      ],
+      "expected_attendees": [
+        [
+          6561,
+          2467,
+          8263,
+          38446,
+          38857,
+          11229
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Zahnarzttermin",
+          "matches": [
+            {
+              "pictogramId": 11229,
+              "imageUrl": "https://static.arasaac.org/pictograms/11229/11229_500.png",
+              "matchedTerm": "zahnarzt",
+              "originalInput": "zahnarzt",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Zahnarzt",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zahnchirurg",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            },
+            {
+              "pictogramId": 16165,
+              "imageUrl": "https://static.arasaac.org/pictograms/16165/16165_500.png",
+              "matchedTerm": "termin",
+              "originalInput": "termin",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Termin",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "AKH Wien",
+          "matches": [
+            {
+              "pictogramId": 3116,
+              "imageUrl": "https://static.arasaac.org/pictograms/3116/3116_500.png",
+              "matchedTerm": "krankenhaus",
+              "originalInput": "AKH Wien",
+              "matchType": "LEXICAL_DICT",
+              "confidence": 0.9,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Krankenhaus",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Dr. Heinz",
+            "matches": [
+              {
+                "pictogramId": 11229,
+                "imageUrl": "https://static.arasaac.org/pictograms/11229/11229_500.png",
+                "matchedTerm": "Dr. Heinz",
+                "originalInput": "Dr. Heinz",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Zahnarzt",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Zahnchirurg",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326667",
+      "language": "de",
+      "summary": "Kieferorthopäde",
+      "location": "",
+      "attendees": "Dr. Krenn",
+      "expected_summary": [
+        [
+          39141,
+          38886,
+          38834,
+          2733,
+          11229
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [
+        [
+          6561,
+          2467,
+          8263,
+          38446,
+          38857,
+          11229
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Kieferorthopäde",
+          "matches": [
+            {
+              "pictogramId": 11229,
+              "imageUrl": "https://static.arasaac.org/pictograms/11229/11229_500.png",
+              "matchedTerm": "zahnarzt",
+              "originalInput": "zahnarzt",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Zahnarzt",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "Zahnchirurg",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Dr. Krenn",
+            "matches": [
+              {
+                "pictogramId": 11229,
+                "imageUrl": "https://static.arasaac.org/pictograms/11229/11229_500.png",
+                "matchedTerm": "Dr. Krenn",
+                "originalInput": "Dr. Krenn",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Zahnarzt",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Zahnchirurg",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326683",
+      "language": "de",
+      "summary": "Picknick",
+      "location": "Bank",
+      "attendees": "Mama, Marina",
+      "expected_summary": [
+        [
+          10236,
+          28361,
+          39755
+        ]
+      ],
+      "expected_location": [
+        [
+          3255,
+          2343
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2458,
+          31148
+        ],
+        [
+          37966,
+          2422
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Picknick",
+          "matches": [
+            {
+              "pictogramId": 10236,
+              "imageUrl": "https://static.arasaac.org/pictograms/10236/10236_500.png",
+              "matchedTerm": "picknick",
+              "originalInput": "picknick",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Picknick",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Bank",
+          "matches": [
+            {
+              "pictogramId": 3255,
+              "imageUrl": "https://static.arasaac.org/pictograms/3255/3255_500.png",
+              "matchedTerm": "Bank",
+              "originalInput": "Bank",
+              "matchType": "DISAMBIGUATED",
+              "confidence": 0.85,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Bank",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Mama",
+            "matches": [
+              {
+                "pictogramId": 2458,
+                "imageUrl": "https://static.arasaac.org/pictograms/2458/2458_500.png",
+                "matchedTerm": "Mama",
+                "originalInput": "Mama",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Mutter",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Mama",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          },
+          {
+            "originalAttendee": "Marina",
+            "matches": [
+              {
+                "pictogramId": 2422,
+                "imageUrl": "https://static.arasaac.org/pictograms/2422/2422_500.png",
+                "matchedTerm": "Marina",
+                "originalInput": "Marina",
+                "matchType": "PERSONAL_RELATIONSHIP",
+                "confidence": 0.95,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Schwester",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326705",
+      "language": "de",
+      "summary": "Termin",
+      "location": "Bank",
+      "attendees": "Mama",
+      "expected_summary": [
+        [
+          16165
+        ]
+      ],
+      "expected_location": [
+        [
+          3062,
+          6055,
+          36828,
+          36830,
+          36831,
+          36832
+        ]
+      ],
+      "expected_attendees": [
+        [
+          2458,
+          31148
+        ]
+      ],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Termin",
+          "matches": [
+            {
+              "pictogramId": 16165,
+              "imageUrl": "https://static.arasaac.org/pictograms/16165/16165_500.png",
+              "matchedTerm": "termin",
+              "originalInput": "termin",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Termin",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "Bank",
+          "matches": [
+            {
+              "pictogramId": 3062,
+              "imageUrl": "https://static.arasaac.org/pictograms/3062/3062_500.png",
+              "matchedTerm": "bank",
+              "originalInput": "Bank",
+              "matchType": "DISAMBIGUATED",
+              "confidence": 0.85,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Bank",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "attendees": [
+          {
+            "originalAttendee": "Mama",
+            "matches": [
+              {
+                "pictogramId": 2458,
+                "imageUrl": "https://static.arasaac.org/pictograms/2458/2458_500.png",
+                "matchedTerm": "Mama",
+                "originalInput": "Mama",
+                "matchType": "LEXICAL_DICT",
+                "confidence": 0.9,
+                "keywords": [
+                  {
+                    "type": 2,
+                    "keyword": "Mutter",
+                    "hasLocution": true,
+                    "plural": null
+                  },
+                  {
+                    "type": 2,
+                    "keyword": "Mama",
+                    "hasLocution": true,
+                    "plural": null
+                  }
+                ]
+              }
+            ],
+            "unmatchedTokens": []
+          }
+        ]
+      },
+      "summary_correct": true,
+      "location_correct": true,
+      "attendees_correct": true
+    },
+    {
+      "id": "row_1777677326725",
+      "language": "de",
+      "summary": "Allerheiligen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          32460
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Allerheiligen",
+          "matches": [
+            {
+              "pictogramId": 32460,
+              "imageUrl": "https://static.arasaac.org/pictograms/32460/32460_500.png",
+              "matchedTerm": "allerheiligen",
+              "originalInput": "allerheiligen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 1,
+                  "keyword": "Allerheiligen",
+                  "hasLocution": true,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326738",
+      "language": "de",
+      "summary": "Lernen",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          25682,
+          2387,
+          36055,
+          35979,
+          6495
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "Lernen",
+          "matches": [
+            {
+              "pictogramId": 2387,
+              "imageUrl": "https://static.arasaac.org/pictograms/2387/2387_500.png",
+              "matchedTerm": "lernen",
+              "originalInput": "lernen",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 3,
+                  "keyword": "lernen",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 3,
+                  "keyword": "studieren",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    },
+    {
+      "id": "row_1777677326755",
+      "language": "de",
+      "summary": "automobil",
+      "location": "",
+      "attendees": "",
+      "expected_summary": [
+        [
+          2339,
+          6981
+        ]
+      ],
+      "expected_location": [],
+      "expected_attendees": [],
+      "response": {
+        "language": "de",
+        "summary": {
+          "originalText": "automobil",
+          "matches": [
+            {
+              "pictogramId": 2339,
+              "imageUrl": "https://static.arasaac.org/pictograms/2339/2339_500.png",
+              "matchedTerm": "auto",
+              "originalInput": "auto",
+              "matchType": "EXACT",
+              "confidence": 0.95,
+              "keywords": [
+                {
+                  "type": 2,
+                  "keyword": "Auto",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "PKW",
+                  "hasLocution": true,
+                  "plural": null
+                },
+                {
+                  "type": 2,
+                  "keyword": "KFZ",
+                  "hasLocution": false,
+                  "plural": null
+                }
+              ]
+            }
+          ],
+          "unmatchedTokens": []
+        },
+        "location": {
+          "originalText": "",
+          "matches": [],
+          "unmatchedTokens": []
+        },
+        "attendees": []
+      },
+      "summary_correct": true,
+      "location_correct": null,
+      "attendees_correct": null
+    }
+  ]
+}
