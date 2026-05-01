@@ -10,44 +10,45 @@ Jause,Werkstatt Aufenthaltsraum,,"[28414,28413,28207,28206,28205,28415]","[6225,
 Mittagessen,Werkstatt Speisesaal,,"[38057,28669,4611,6990,4609]","[6225,9805,11655,24645,32424],[11655,9824]",[],,BAG WfbM; Lebenshilfe Wien
 Nachmittagsjause,,,"[4695,37841,4694,28835]",[],[],,Lebenshilfe Wien Tagesstruktur
 Abendessen kochen,Küche,Mama,"[30526,6985,3235,6984,2342],[38057,4611,4592]",[33070],"[2458,31148]",,Touchdown 21 Mein Alltag
-Pizza essen mit Tom,"Pizzeria Vecchia, Wien 16",Alex,"[2527],[38057,4611,4592,2349],[7064],[2423,37967]","[32448,11344]","[2423,37967]",,Down-Syndrom Österreich Freizeit-Tipps
+Pizza essen,"Pizzeria Vecchia, Wien 16",Alex,"[2527],[38057,4611,4592,2349]","[32448,11344]","[2423,37967]",,Down-Syndrom Österreich Freizeit-Tipps
 Kaffeehausbesuch Sonntag,"Café Sperl, Wien","Mama, Papa","[37723,6478],[2317],[27125],[2296,24479]","[32400,37337,28889]","[2458,31148],[2497]",,Ohrenkuss #48 Alltag; AT-Variante 'Kaffeehaus'
 Eis essen,"Eissalon Tichy, Wien",Lisa,"[24208,17044,17042],[3348,39483,2349]","[3347,6520]",[36935],,Touchdown 21 Freizeit
 Geburtstagstorte backen,Küche,Mama,"[5487],[2579,25488]",[33070],"[2458,31148]",,Lebenshilfe Wien Tagesstruktur
 Wäsche waschen,Waschküche,,[5496],"[29841,26168]",[],,Lawton-Brody IADL Scale 1969
-Wäsche aufhängen,Schlafzimmer,,[37938],[5988],[],,Lawton-Brody IADL Scale 1969
+Wäsche aufhängen,Schlafzimmer,,"[15736],[5593]",[5988],[],,Lawton-Brody IADL Scale 1969
 Bügeln,Reperaturwerkstatt,,"[2528,2830,26330,26331],[7233,34739]",[16127],[],,Touchdown 21 Mein Alltag
 Zimmer Staubsaugen,zuhause,,"[3227,4877,16443,29740],[33068]","[6964,9861]",[],,Diakoneo Wohngruppe Igel
 Bad putzen,Bad,,"[3351],[33954,15905,3323]","[33954,15905]",[],,AWO Wohnheim Dresden Hausordnung
 WC putzen,Bad,,[37401],"[33954,15905]",[],,AWO Wohnheim Dresden
 Müll rausbringen,Mülleimer,,[27208],"[38205,38208,2355,37417]",[],,Touchdown 21 Mein Alltag
-Lebensmittel einkaufen,Hofer,,"[28665,39753,8985,8986]","[3389,6618]",[],,Lebenshilfe Wien teilbetreutes Wohnen; AT-Kette 'Hofer'
+Lebensmittel einkaufen,Hofer,,"[4610],[8985]","[3389,6618]",[],,Lebenshilfe Wien teilbetreutes Wohnen; AT-Kette 'Hofer'
 Einkaufsliste schreiben,Zuhause,Betreuerin Sabine,"[2380,8107],[7144]","[6964,9861]","[2476,3267,7163,32983,32982,15992,38411]",,Lawton-Brody IADL Scale
 Werkstatt,,Leiter Markus,"[6225,9805,11655,24645,32424]",[],[35133],,Lebenshilfe Wien Tagesstruktur Brehmstraße
 Fließbandarbeit,,,[39263],[],[],,BAG WfbM; Werkstätten im Netz Verpackung
-Vogelhaus machen,Tischlerei,Anleiter Klaus,"[32751,11749,6190],[39265]",[16471],"[34539,34540]","DE: Vogelhäuschen, nicht Vogelhaus",Werkstätten im Netz Holzverarbeitung; AT-Variante 'Tischlerei'
+Vogelhäuschen machen,Tischlerei,Leiter Klaus,"[32751,11749,6190],[39265]",[16471],"[34539,34540]","DE: Vogelhäuschen, nicht Vogelhaus",Werkstätten im Netz Holzverarbeitung; AT-Variante 'Tischlerei'
 Kerzen machen,,,"[32751,11749,6190],[6242,37302],",[],[],,Lebenshilfe Wien Werkstatt 2 (behindertenarbeit.at)
-Töpferklasse,,,"[16453,30975,36147],[7063]",[],[],"mal schauen was hier rauskommt, class zu ""learn"" mappen? ",Lebenshilfe Wien Werkstatt 2
+Töpfer klasse,,,"[16453,30975,36147],[7063]",[],[],"mal schauen was hier rauskommt, class zu ""learn"" mappen? ",Lebenshilfe Wien Werkstatt 2
 Lesenachhilfe,,Lehrerin Wagner,"[2447],[33080]",[],"[6555,6556,2457,2456,28003,28002]",,Lebenshilfe Wien Tagesstruktur Brehmstraße
-Werkstatt Tag der offenen Türe,,,"[6225,9805,11655,24645,32424],[36698]",[],[],,Lebenshilfe Wien Schau vorbei 2024
+Werkstatt Tag der offenen Tür,,,"[6225,9805,11655,24645,32424],[36698]",[],[],,Lebenshilfe Wien Schau vorbei 2024
 Computerfähigkeitenkurs,Computer room,Leiter Bauer,"[7190,2487,7214],[11750,35949,22789],[23404,30030]",[9915],"[11651],[36935]","skills muss zu dem piktogramm erst gemappt werden: ""able to""",Lebenshilfe Wien Tagesstruktur
-Bewerbungstraining,AMS Wien,,"[39176,19555],[26636,37810,8029,35979,37776]","[24637,24638]",[],,AMS; AK Wien
+Bewerbungstraining,AMS Wien,,"[39176,19555],[26636,37810,8029,35979,37776,37196]","[24637,24638]",[],,AMS; AK Wien
 Bewerbungsgespräch,Spar,Personaler Kraus,"[39176,19555],[23402]","[3389,6618]","[27503,16307,27504,27505,32980,32978]",,Lebenshilfe.de Ausbildung; AT-Kette 'SPAR'
 Bus nehmen,Bushaltestelle Schellhammergasse,Betreuerin Sabine,"[36595,36594,28173]","[2499,35407]","[2476,3267,7163,32983,32982,15992,38411]",,Wiener Linien; Lebenshilfe Wien
 Logopädie,,Logopädin Bauer,"[32428,6142]",[],"[32911,2454,32910,6141,23396,37355]",,
-Augenärztliche Untersuchung,,Augenarzt Wagner,"[16365,16367,38824],[27143,27142,33114]",[],"[16365,16367,38824]",,
+Augenärztliche Untersuchung,,Dr Wagner,"[16365,16367,38824],[27143,27142,33114]",[],"[16365,16367,38824]",,
 Zahnärztliche Untersuchung,,,"[2663],[27143,27142,33114]",[],[],,
-Professionelle Zahnreinigung,,,"[36950],[39216",[],[],,
-Friseurtermin,"Friseur Bundy, Wien",,"[6588,2849,11333],[16165]","[6587,2850]",[],,
+Professionelle Zahnreinigung,,,[39216],[],[],,
+Friseurtermin,"Friseur Bundy, Wien",,"[6588,2849,11333,2512],[16165]","[6587,2850]",[],,
 Verschreibung abholen,Apotheke,,"[10148,32773,32773,6453,6452,35019,9072],[38606]","[37368,6497,3313,36835,36836,36837,36838,38352]",[],,
 Gesicht waschen,,,"[34611,34777,34775]",[],[],,
 Woche planen,,,"[37732,37372,7244,24601],[35671,35651,11706,34870]",[],[],,
 Chor singen,,,"[2717,39268],[6960,2315,28657,32015]",[],[],,
 Schwimmstunde,,,"[25038],[7063,26636,37810,8029,35979,37776,7063]",[],[],,
 Termin,,,[16165],[],[],,
-Zahnarzttermin,AKH Wien,Dr. Heinz,"[39141,38886,38834,2733,11229],[16165]",[38083],"[6561,2467,8263,38446,38857]",,
-Kieferorthopäde,,Dr. Krenn,"[39141,38886,38834,2733,11229]",[],"[6561,2467,8263,38446,38857]",,
+Zahnarzttermin,AKH Wien,Dr. Heinz,"[39141,38886,38834,2733,11229],[16165]",[38083],"[6561,2467,8263,38446,38857,11229]",,
+Kieferorthopäde,,Dr. Krenn,"[39141,38886,38834,2733,11229]",[],"[6561,2467,8263,38446,38857,11229]",,
 Picknick,Bank,"Mama, Marina","[10236,28361,39755]",[3255],"[2458,31148],[37966,2422]",,
 Termin,Bank,"Mama, Bankangestellter",[16165],"[3062,6055,36828,36830,36831,36832]","[2458,31148],[15341,15714]",,
 Allerheiligen,,,[32460],[],[],,
 Lernen,,,"[25682,2387,36055,35979,6495]",[],[],,
+automobil,,,"[2339,6981]",[],[],,

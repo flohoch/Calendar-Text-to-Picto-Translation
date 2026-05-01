@@ -69,16 +69,62 @@ def find_for_phrase(phrase: str, language: Language) -> MatchAttempt:
     return MatchAttempt()
 
 
+def try_preferred_phrase(phrase: str, language: Language) -> MatchAttempt:
+    """
+    Consult the preferred_pictograms override directly for an exact phrase
+    string. This fires even when `phrase` has no entry in the exact index
+    at all, which is the case for multi-word concepts like "laundry room"
+    where the user wants to pin a specific pictogram by ID.
+
+    Returns a MatchAttempt with match_type=EXACT (since we treat overrides
+    as authoritative) when the override resolves to a valid pictogram.
+    """
+    if not phrase:
+        return MatchAttempt()
+    pid = preferred_pictograms.get_preferred(phrase, language)
+    if pid is None:
+        return MatchAttempt()
+    picto = index_service.get_pictogram_by_id(pid, language)
+    if picto is None:
+        logger.warning(
+            "[matching] preferred id %d for phrase '%s' not found in DB",
+            pid, phrase,
+        )
+        return MatchAttempt()
+    return MatchAttempt(
+        pictogram=picto,
+        match_type=MatchType.EXACT,
+        matched_term=phrase,
+    )
+
+
 def find_sliding_window(tokens: list[str], start: int,
                         language: Language) -> tuple[MatchAttempt, int]:
     """
     Tier 1 — try the longest possible phrase starting at `start`, shrinking
     until a match. Returns (match, consumed_count). consumed_count > 1 only
     for genuine multi-word matches; single-token windows return consumed=0.
+
+    For each window size, we first check the preferred_pictograms override
+    (so a user-pinned ID for "laundry room" wins even when ARASAAC's keyword
+    differs), then fall back to the exact index.
     """
     n = len(tokens)
     for window_size in range(n - start, 1, -1):
         phrase = " ".join(tokens[start : start + window_size])
+
+        # Preferred override first — fires even with no index hit.
+        pref = try_preferred_phrase(phrase, language)
+        if pref.pictogram:
+            return (
+                MatchAttempt(
+                    pictogram=pref.pictogram,
+                    match_type=MatchType.SLIDING_WINDOW,
+                    matched_term=phrase,
+                ),
+                window_size,
+            )
+
         results = index_service.find_by_exact(phrase, language)
         if results:
             chosen = _select_preferred(results, phrase, language)
@@ -122,11 +168,10 @@ def _candidate_synsets(token: str, lemma: str, language: Language) -> set[str]:
     if candidates:
         return candidates
 
-    # Direct WordNet fallback (English-only). For German, this only helps
-    # if the lemma happens to coincide with an English word.
-    candidates.update(synset_service.lookup_synsets_for_word(lemma))
+    # Direct WordNet fallback — uses OMW for German via the language hint.
+    candidates.update(synset_service.lookup_synsets_for_word(lemma, language.value))
     if lemma != token:
-        candidates.update(synset_service.lookup_synsets_for_word(token))
+        candidates.update(synset_service.lookup_synsets_for_word(token, language.value))
     return candidates
 
 
@@ -178,16 +223,29 @@ def run_full_pipeline(token: str, lemma: str, language: Language,
     Run tiers 2, 3, 4, 5 for a single token. Sliding window (tier 1)
     is invoked separately by callers that operate on multi-token sequences.
     Returns the first successful match, or None.
+
+    The token is the surface form (lowercased); `lemma` is the spaCy lemma.
+    Both are tried at each tier so that inputs like "cooking" can resolve
+    via the lemma "cook", and inputs like "Automobile" via WordNet's
+    membership of "automobile" in the same synset as "car".
     """
-    # Tier 2: Exact
+    # Tier 2: Exact (try both surface and lemma)
     attempt = find_for_phrase(token, language)
     if attempt.pictogram:
         logger.debug("  EXACT: '%s' → %d", token, attempt.pictogram.id)
         return attempt.pictogram.to_match(
             original_input, attempt.matched_term or token, attempt.match_type
         )
+    if lemma and lemma != token:
+        attempt = find_for_phrase(lemma, language)
+        if attempt.pictogram:
+            logger.debug("  EXACT (via lemma): '%s'→'%s' → %d",
+                         token, lemma, attempt.pictogram.id)
+            return attempt.pictogram.to_match(
+                original_input, attempt.matched_term or lemma, attempt.match_type
+            )
 
-    # Tier 3: Lemma
+    # Tier 3: Lemma index
     if lemma != token:
         attempt = find_for_lemma(lemma, language)
         if attempt.pictogram:
@@ -222,4 +280,5 @@ def run_full_pipeline(token: str, lemma: str, language: Language,
             confidence=attempt.confidence_override,
             )
 
+    logger.debug("  no match for '%s' (lemma '%s')", token, lemma)
     return None

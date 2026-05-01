@@ -46,8 +46,6 @@ LOCATION_LEXICAL: dict[Language, dict[str, str]] = {
         "büro": "büro",
         "arbeit": "arbeit",
         "ams": "Jobcenter",
-        # Austrian
-        "jause": "snack",
     },
     Language.EN: {
         "walmart": "supermarket",

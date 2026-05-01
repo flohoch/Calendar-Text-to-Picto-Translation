@@ -105,10 +105,11 @@ def get_hypernyms_for_all(synset_ids: set[str], max_depth: int = 2) -> list[set[
     return aggregated
 
 
-def lookup_synsets_for_word(word: str) -> set[str]:
+def lookup_synsets_for_word(word: str, language: str | None = None) -> set[str]:
     """
-    Look up a word directly in WordNet (English only — NLTK's WordNet is
-    English-only by default, though OMW-1.4 enables cross-lingual queries).
+    Look up a word directly in WordNet. For English (or `language` not given),
+    uses NLTK WordNet's default English vocabulary. For German (`language='de'`),
+    uses Open Multilingual WordNet's German index (`lang='deu'`).
 
     Returns ARASAAC-format synset IDs for every synset the word participates
     in. Use this when the word is NOT an ARASAAC keyword and therefore has
@@ -119,12 +120,38 @@ def lookup_synsets_for_word(word: str) -> set[str]:
         return set()
 
     result: set[str] = set()
+    word_lower = word.strip().lower()
+
+    # Map our Language enum value to NLTK's OMW language code.
+    omw_lang = None
+    if language == "de":
+        omw_lang = "deu"
+    elif language == "en":
+        omw_lang = None  # default English
+
     try:
-        synsets = wn.synsets(word.strip().lower())
+        if omw_lang:
+            synsets = wn.synsets(word_lower, lang=omw_lang)
+        else:
+            synsets = wn.synsets(word_lower)
         for s in synsets:
             sid = to_arasaac_format(s)
             if sid:
                 result.add(sid)
     except Exception as e:
-        logger.debug("WordNet lookup failed for '%s': %s", word, e)
+        logger.debug("WordNet lookup failed for '%s' (lang=%s): %s",
+                     word, language, e)
+
+    # Fallback: if German lookup found nothing AND the word might also exist
+    # in English WordNet, try the English index too. Cheap belt-and-suspenders.
+    if not result and omw_lang:
+        try:
+            synsets = wn.synsets(word_lower)
+            for s in synsets:
+                sid = to_arasaac_format(s)
+                if sid:
+                    result.add(sid)
+        except Exception:
+            pass
+
     return result

@@ -20,7 +20,11 @@ Keys must be lowercased.
 """
 from __future__ import annotations
 
+import logging
+
 from app.models.schemas import Language
+
+logger = logging.getLogger(__name__)
 
 PREFERRED_PICTOGRAMS: dict[Language, dict[str, int]] = {
     Language.DE: {
@@ -31,10 +35,12 @@ PREFERRED_PICTOGRAMS: dict[Language, dict[str, int]] = {
         "zuhause":    6964,
         "küche":    33070,
         "waschküche":    29841,
+        "stationsarbeit":     6624,
         "gewand":    7233,
         "zimmer":    33068,
         "mülleimer":     38205,
         "fähigkeiten":     26636,
+        "freunde":     25792,
         "schwimmen":     25038,
         "allerheiligen":     32460,
         "krankenhaus": 38083,
@@ -47,11 +53,14 @@ PREFERRED_PICTOGRAMS: dict[Language, dict[str, int]] = {
     Language.EN: {
         "get up": 6549,
         "bathroom": 33954,
+        "family": 38351,
         "home":     6964,
         "kitchen":     33070,
         "laundry room":     29841,
+        "station work":     6624,
         "clothes":     7233,
         "room":     33068,
+        "friends":     25792,
         "trash bin":     38205,
         "training":     26636,
         "swimming":     25038,

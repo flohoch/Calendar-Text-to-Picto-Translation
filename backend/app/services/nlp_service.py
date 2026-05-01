@@ -41,8 +41,17 @@ class NlpResult:
     entities: list[Entity]
 
     def content_tokens(self) -> list[Token]:
-        """Return non-stop, non-punct, alphabetic tokens."""
-        return [t for t in self.tokens if not t.is_punct and t.is_alpha]
+        """Return non-stop, non-punct, alphabetic tokens.
+
+        Filtering stop words here means function words like "to", "the",
+        "from", "with" never enter the per-token matching loop. This is
+        the right default for AAC calendar entries: pictogram-based
+        calendars summarize events, not transliterate sentences.
+        Multi-word phrases that intentionally include stop words (like
+        "do the laundry") are handled earlier by the raw sliding window.
+        """
+        return [t for t in self.tokens
+                if not t.is_punct and t.is_alpha and not t.is_stop]
 
 
 _pipelines: dict[Language, SpacyLanguage] = {}
@@ -52,10 +61,10 @@ def init() -> None:
     """Load spaCy models for both languages."""
     global _pipelines
     try:
-        logger.info("Loading spaCy model: de_core_news_md")
-        _pipelines[Language.DE] = spacy.load("de_core_news_md")
-        logger.info("Loading spaCy model: en_core_web_md")
-        _pipelines[Language.EN] = spacy.load("en_core_web_md")
+        logger.info("Loading spaCy model: de_core_news_lg")
+        _pipelines[Language.DE] = spacy.load("de_core_news_lg")
+        logger.info("Loading spaCy model: en_core_web_lg")
+        _pipelines[Language.EN] = spacy.load("en_core_web_lg")
         logger.info("spaCy models loaded.")
     except OSError as e:
         logger.error("Failed to load spaCy models: %s", e)

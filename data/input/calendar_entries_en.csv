@@ -6,49 +6,50 @@ Wash hair,Bathroom,,"[8616,8976,35037]","[33954,15905]",[],,Touchdown 21 Mein Al
 Insert hearing aid,home,,"[34278,34280,34279]","[6964,9861]",[],,"Bull et al. 2022 (AAP, hearing loss in DS); NDSS Healthcare Guidelines"
 Get dressed,home,,"[6627,2781,32135]","[6964,9861]",[],,Lawton-Brody IADL; Lebenshilfe Wien Tagesstruktur
 Breakfast,Kitchen,"Marina, Alex, Anna","[4626,4625,7012,28667]",[33070],"[37966,2422],[2423,37967],[38938,38937]",,Diakoneo Wohngruppe Igel
-snack,Workshop lounge,,"[28414,28413,28207,28206,28205,28415]","[6225,9805,11655,24645,32424],[39108,9911]",[],,Lebenshilfe Wien Tagesstruktur Nobilegasse; AT-Variante 'Jause'
-Lunch,Workshop dining hall,,"[38057,28669,4611,6990,4609]","[6225,9805,11655,24645,32424],[11655,9824]",[],,BAG WfbM; Lebenshilfe Wien
+snack,Workshop lounge,,"[28414,28413,28207,28206,28205,28415,4694]","[6225,9805,11655,24645,32424],[39108,9911]",[],,Lebenshilfe Wien Tagesstruktur Nobilegasse; AT-Variante 'Jause'
+Lunch,dining hall,,"[38057,28669,4611,6990,4609]","[11655,9824]",[],,BAG WfbM; Lebenshilfe Wien
 Afternoon snack,,,"[4695,37841,4694,28835]",[],[],,Lebenshilfe Wien Tagesstruktur
 Cook dinner,kitchen,Mom,"[30526,6985,3235,6984,2342],[38057,4611,4592]",[33070],"[2458,31148]",,Touchdown 21 Mein Alltag
-Pizza dinner with Tom,"Pizzeria Vecchia, Wien",Tom,"[2527],[38057,4611,4592,2349],[7064],[36935]","[32448,11344]",[36935],,Down-Syndrom Österreich Freizeit-Tipps
-Sunday coffee,"Coffe bar Sperl, Wien","Mom, Dad","[37723,6478],[2296,24479]","[32400,37337]","[2458,31148],[2497]",,Ohrenkuss #48 Alltag; AT-Variante 'Kaffeehaus'
+Pizza dinner,"Pizzeria Vecchia, Wien",Alex,"[2527],[38057,4611,4592,2349]","[32448,11344]","[2423,37967]",,Down-Syndrom Österreich Freizeit-Tipps
+coffee,"Coffee bar Sperl, Wien","Mom, Dad","[2296,24479]","[32400,37337,28889]","[2458,31148],[2497]",,Ohrenkuss #48 Alltag; AT-Variante 'Kaffeehaus'
 Get ice cream,"Ice cream Shop Tichy, Wien",Lisa,"[24208,17044,17042],[3348,39483]","[3347,6520]",[36935],,Touchdown 21 Freizeit
 Bake birthday cake,Kitchen,Mom,"[5487],[2579,25488]",[33070],"[2458,31148]",,Lebenshilfe Wien Tagesstruktur
-Do laundry,laundry room,,[5496],"[29841,26168]",[],,Lawton-Brody IADL Scale 1969
+Do the laundry,laundry room,,[5496],"[29841,26168]",[],,Lawton-Brody IADL Scale 1969
 Hang up clothes,bedroom,,[37938],[5988],[],,Lawton-Brody IADL Scale 1969
 Iron clothes,utility room,,"[2528,2830,26330,26331],[7233,34739]",[16127],[],,Touchdown 21 Mein Alltag
 Vacuum room,home,,"[3227,4877,16443,29740],[33068]","[6964,9861]",[],,Diakoneo Wohngruppe Igel
 Clean bathroom,Bathroom,,"[3351],[33954,15905]","[33954,15905]",[],,AWO Wohnheim Dresden Hausordnung
-Clean toilet,Bathroom,,[37401],"[33954,15905]",[],,AWO Wohnheim Dresden
+Clean toilet,Bathroom,,"[3351],[2430]","[33954,15905]",[],,AWO Wohnheim Dresden
 Take out trash,bin,,[27208],"[38205,38208,2355,37417]",[],,Touchdown 21 Mein Alltag
-Grocery shopping,Walmart,,"[7144],[9058]","[3389,6618]",[],,Lebenshilfe Wien teilbetreutes Wohnen; AT-Kette 'Hofer'
+Grocery shopping,Walmart,,[9058],"[3389,6618]",[],,Lebenshilfe Wien teilbetreutes Wohnen; AT-Kette 'Hofer'
 Write shopping list,home,Caregiver Sabine,"[2380,8107],[7144]","[6964,9861]","[2476,3267,7163,32983,32982,15992,38411]",,Lawton-Brody IADL Scale
 Workshop,,Markus,"[6225,9805,11655,24645,32424]",[],[36935],,Lebenshilfe Wien Tagesstruktur Brehmstraße
 Assembly line,,,[39263],[],[],,BAG WfbM; Werkstätten im Netz Verpackung
-make bird houses,carpenter's workshop,Instructor Klaus,"[32751,11749,6190],[39265]",[16471],"[34539,34540]","DE: Vogelhäuschen, nicht Vogelhaus",Werkstätten im Netz Holzverarbeitung; AT-Variante 'Tischlerei'
+make bird house,carpenter's workshop,Instructor Klaus,[39265],[6225],"[34539,34540,11651]","DE: Vogelhäuschen, nicht Vogelhaus",Werkstätten im Netz Holzverarbeitung; AT-Variante 'Tischlerei'
 candle making,,,"[32751,11749,6190],[6242,37302],",[],[],,Lebenshilfe Wien Werkstatt 2 (behindertenarbeit.at)
 Pottery class,,,"[16453,30975,36147],[7063]",[],[],"mal schauen was hier rauskommt, class zu ""learn"" mappen? ",Lebenshilfe Wien Werkstatt 2
 Reading tutoring,,Teacher Wagner,"[2447],[33080]",[],"[6555,6556,2457,2456,28003,28002]",,Lebenshilfe Wien Tagesstruktur Brehmstraße
 Workshop open day,,,"[6225,9805,11655,24645,32424],[36698]",[],[],,Lebenshilfe Wien Schau vorbei 2024
 Computer skills course,Computer room,Instructor Bauer,"[7190,2487,7214],[11750,35949,22789],[23404,30030]",[9915],[11651],"skills muss zu dem piktogramm erst gemappt werden: ""able to""",Lebenshilfe Wien Tagesstruktur
 Job application training,AMS Vienna,,"[16087,7795],[39176,19555],[26636,37810,8029,35979,37776]","[24637,24638]",[],,AMS; AK Wien
-Job interview,Lidl,HR manager Kraus,"[16087,7795],[7083,36531,6492]","[3389,6618]","[27503,16307,27504,27505,32980,32978]",,Lebenshilfe.de Ausbildung; AT-Kette 'SPAR'
-take bus,Bus stop Yorkershire,Caregiver Sabine,"[36595,36594,28173]","[2499,35407]","[2476,3267,7163,32983,32982,15992,38411]",,Wiener Linien; Lebenshilfe Wien
+Job interview,Lidl,,"[7083,36531,6492]","[3389,6618]",[],,Lebenshilfe.de Ausbildung; AT-Kette 'SPAR'
+take the bus,Bus stop Yorkershire,Caregiver Sabine,"[36595,36594,28173]","[2499,35407]","[2476,3267,7163,32983,32982,15992,38411]",,Wiener Linien; Lebenshilfe Wien
 Speech therapy,,Speech therapist Bauer,"[32428,6142,2454]",[],"[32911,2454,32910,6141,23396,37355]",,
-Eye doctor checkup,,ophthalmologist Wagner,"[16365,16367,38824],[27143,27142,33114]",[],"[16365,16367,38824]",,
-Dental check-up,,,"[2663],[27143,27142,33114]",[],[],,
-Professional dental cleaning,,,"[36950],[39216",[],[],,
-Hairdresser appointment,"Friseur Bundy, Vienna",,"[6588,2849,11333],[16165]","[6587,2850]",[],,
+Eye doctor checkup,,Dr Wagner,"[16365,16367,38824],[27143,27142,33114]",[],"[16365,16367,38824]",,
+Dental checkup,,,"[2663,2733],[27143,27142,33114]",[],[],,
+Professional dental cleaning,,,"[39216],[2353]",[],[],,
+Hairdresser appointment,"Hairdresser Bundy, Vienna",,[16165],"[6587,2850,2512]",[],,
 pick up prescription,Pharmacy,,"[10148,32773,32773,6453,6452,35019,9072],[38606]","[37368,6497,3313,36835,36836,36837,36838,38352]",[],,
-Wash face,,,"[34611,34777,34775]",[],[],,
+Wash face,,,"[3323],[2684]",[],[],,
 Week planning,,,"[37732,37372,7244,24601],[35671,35651,11706,34870]",[],[],,
-Choir singing,,,"[2717,39268],[6960,2315,28657,32015]",[],[],,
+Choir singing,,,"[6960,2315,28657,32015]",[],[],,
 Swimming class,,,"[25038],[7063,26636,37810,8029,35979,37776,7063]",[],[],,
 Appointment,,,[16165],[],[],,
-Dentist appointment,,,"[39141,38886,38834,2733,11229],[16165]",[],[],,
-Orthodontist,,Dr. Krenn,"[39141,38886,38834,2733,11229]",[],"[6561,2467,8263,38446,38857]",,
-Doc appt,,Dr. Heinz,"[6561,2467,8263,38446,38857],[16165]",[],"[6561,2467,8263,38446,38857]",,
+Dentist appointment,,,[16165],[],[],,
+Orthodontist,,Dr. Krenn,"[39141,38886,38834,2733,11229]",[],"[6561,2467,8263,38446,38857,2733]",,
+Doc appt,,Dr. Heinz,"[6561,2467,8263,38446,38857],[16165]",[],"[6561,2467,8263,38446,38857,2733]",,
 picnic,Bank,"Mom, Marina","[10236,28361,39755]",[2811],"[2458,31148],[37966,2422]",,
 Appointment,Bank,"Mom, Bank Employee",[16165],"[3062,6055,36828,36830,36831,36832]","[2458,31148],[15341,15714]",,
 All saints day,,,[32460],[],[],,
 studying,,,"[25682,2387,36055,35979,6495]",[],[],,
+automobile,,,"[2339,6981]",[],[],,

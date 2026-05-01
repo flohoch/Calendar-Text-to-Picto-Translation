@@ -54,6 +54,12 @@ PHRASE_SYNONYMS: dict[Language, list[tuple[str, str]]] = {
         ("take shower", "have a shower"),
         ("insert hearing aid", "put on hearing aid"),
         ("put in hearing aid", "put on hearing aid"),
+        # Verb-phrase normalizations (English progressive → infinitive form
+        # used as ARASAAC keyword)
+        ("making candle", "make candle"),
+        ("making candles", "make candle"),
+        ("reading tutoring", "tutoring"),
+        ("choir singing", "sing"),
         # Doctor-specialty synonyms
         ("eye doctor", "ophthalmologist"),
         ("ear doctor", "otolaryngologist"),
@@ -62,11 +68,14 @@ PHRASE_SYNONYMS: dict[Language, list[tuple[str, str]]] = {
         ("foot doctor", "podiatrist"),
         ("kids doctor", "pediatrician"),
         ("children's doctor", "pediatrician"),
+        # Known cross-WordNet equivalences (when synset path can't bridge)
+        ("automobile", "car"),
     ],
     Language.DE: [
         ("augenarzt termin", "augenarzttermin"),
         ("hautarzt termin", "hautarzttermin"),
         ("kinderarzt termin", "kinderarzttermin"),
+        ("automobil", "auto"),
     ],
 }
 

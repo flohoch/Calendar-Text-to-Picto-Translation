@@ -49,25 +49,68 @@ def translate(text: str, language: Language,
     matches: list[PictogramMatch] = []
 
     # Tier B: Context-aware disambiguation
-    disambig_concept = disambiguation_dictionaries.disambiguate_location(
+    disambig_concept, disambig_pid = disambiguation_dictionaries.disambiguate_location(
         text, summary_context, language
     )
-    if disambig_concept:
-        results = index_service.find_by_exact(disambig_concept, language)
-        if results:
+    if disambig_pid is not None:
+        picto = index_service.get_pictogram_by_id(disambig_pid, language)
+        if picto:
             logger.info(
-                "[LOCATION] DISAMBIGUATED: '%s' (via summary='%s') → '%s' → pictogram %d",
-                text, summary_context, disambig_concept, results[0].id,
+                "[LOCATION] DISAMBIGUATED (id): '%s' (via summary='%s') → pictogram %d",
+                text, summary_context, picto.id,
             )
-            matches.append(results[0].to_match(
-                text, disambig_concept, MatchType.DISAMBIGUATED
+            matches.append(picto.to_match(
+                text, disambig_concept or text, MatchType.DISAMBIGUATED
             ))
             return FieldTranslation(originalText=text, matches=matches, unmatchedTokens=[])
 
-    # Tier C: Lexical lookup — try the whole (normalized) text and each entity
+    if disambig_concept:
+        # Try the concept directly, then a few common aliases for it.
+        # This makes the dict tolerant to ARASAAC keyword variations.
+        aliases = [disambig_concept]
+        if disambig_concept == "parkbank":
+            aliases += ["sitzbank", "park", "bench"]
+        elif disambig_concept == "river":
+            aliases += ["riverbank", "shore"]
+        for alias in aliases:
+            results = index_service.find_by_exact(alias, language)
+            if results:
+                logger.info(
+                    "[LOCATION] DISAMBIGUATED: '%s' (via summary='%s') → '%s' → pictogram %d",
+                    text, summary_context, alias, results[0].id,
+                )
+                matches.append(results[0].to_match(
+                    text, alias, MatchType.DISAMBIGUATED
+                ))
+                return FieldTranslation(originalText=text, matches=matches, unmatchedTokens=[])
+
+    # Tier B2: Location title patterns — "Friseur Bundy" → friseursalon.
+    # The title (a profession/business word) is at the start; the rest is
+    # treated as a name/identifier and ignored for picture selection.
+    title_concept = _extract_location_title(normalized.strip().lower(), language)
+    if title_concept:
+        for alias in title_concept:
+            results = index_service.find_by_exact(alias, language)
+            if results:
+                logger.info(
+                    "[LOCATION] TITLE: '%s' → '%s' → pictogram %d",
+                    text, alias, results[0].id,
+                )
+                matches.append(results[0].to_match(
+                    text, alias, MatchType.LEXICAL_DICT
+                ))
+                return FieldTranslation(originalText=text, matches=matches, unmatchedTokens=[])
+
+    # Tier C: Lexical lookup — try the whole (normalized) text, each entity,
+    # AND each individual word. Per-word lookup catches Austria/region-specific
+    # acronyms like "AMS" in "AMS Vienna" that NER doesn't recognize as ORG.
     candidates: list[str] = [normalized.strip().lower()]
     for ent in nlp_result.entities:
         candidates.append(ent.text.strip().lower())
+    # Per-word fallback
+    for word in normalized.strip().lower().split():
+        if word:
+            candidates.append(word)
     seen = set()
     candidates = [c for c in candidates if c and not (c in seen or seen.add(c))]
 
@@ -132,3 +175,39 @@ def translate(text: str, language: Language,
     return FieldTranslation(
         originalText=text, matches=matches, unmatchedTokens=unmatched
     )
+
+
+# Location title patterns — when the location text begins with a known
+# profession or business type, treat that word as the location concept and
+# ignore the trailing name/identifier. The list of aliases is tried in order
+# against the exact index until one matches.
+_LOCATION_TITLE_PATTERNS_DE: list[tuple[str, list[str]]] = [
+    (r"^friseur(in)?\s+\w+", ["friseursalon", "friseur"]),
+    (r"^bäckerei\s+\w+",     ["bäckerei"]),
+    (r"^metzgerei\s+\w+",    ["metzgerei"]),
+    (r"^apotheke\s+\w+",     ["apotheke"]),
+    (r"^restaurant\s+\w+",   ["restaurant"]),
+    (r"^café\s+\w+",         ["café", "cafe"]),
+    (r"^hotel\s+\w+",        ["hotel"]),
+]
+_LOCATION_TITLE_PATTERNS_EN: list[tuple[str, list[str]]] = [
+    (r"^hairdresser\s+\w+",   ["hair salon", "hairdresser"]),
+    (r"^bakery\s+\w+",         ["bakery"]),
+    (r"^butcher\s+\w+",        ["butcher", "butcher shop"]),
+    (r"^pharmacy\s+\w+",       ["pharmacy"]),
+    (r"^restaurant\s+\w+",     ["restaurant"]),
+    (r"^cafe\s+\w+",           ["cafe"]),
+    (r"^hotel\s+\w+",          ["hotel"]),
+    (r".*\bworkshop\b.*",      ["workshop"]),
+    (r".*\bgym\b.*",           ["gym"]),
+    (r".*\boffice\b.*",        ["office"]),
+]
+
+
+def _extract_location_title(lower_text: str, language: Language) -> list[str] | None:
+    import re as _re
+    patterns = _LOCATION_TITLE_PATTERNS_DE if language == Language.DE else _LOCATION_TITLE_PATTERNS_EN
+    for pattern, aliases in patterns:
+        if _re.match(pattern, lower_text, flags=_re.IGNORECASE):
+            return aliases
+    return None
