@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="updated readme">
+    <list default="true" id="709882b7-2866-4649-b637-a29d7d7ffff0" name="Changes" comment="fixed value tag bug">
+      <change afterPath="$PROJECT_DIR$/backend/app/services/preferred_pictograms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/services/text_normalization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/models/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/attendee_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/attendee_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/compound_splitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/compound_splitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/evaluation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/evaluation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/index_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/index_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/lexical_dictionaries.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/lexical_dictionaries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/location_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/matching_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/matching_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/personal_relationships.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/personal_relationships.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/summary_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/summary_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/synset_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/synset_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/translation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/translation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input/calendar_entries_de.csv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/input/calendar_entries_de.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/input/calendar_entries_en.csv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/input/calendar_entries_en.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/evaluation-view/evaluation-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/evaluation-view/evaluation-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/models/translation.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/models/translation.model.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +222,7 @@
       <workItem from="1777233262664" duration="909000" />
       <workItem from="1777234230905" duration="1485000" />
       <workItem from="1777239118002" duration="8841000" />
-      <workItem from="1777575299206" duration="4141000" />
+      <workItem from="1777575299206" duration="17662000" />
     </task>
     <task id="LOCAL-00001" summary="updated readme">
       <created>1773610736053</created>
@@ -244,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777591337670</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed value tag bug">
+      <option name="closed" value="true" />
+      <created>1777591791697</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777591791697</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +292,8 @@
     </ignored-roots>
     <MESSAGE value="first setup" />
     <MESSAGE value="updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
+    <MESSAGE value="fixed value tag bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed value tag bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

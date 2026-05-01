@@ -83,6 +83,12 @@ def _build_for_language(language: Language, coll_name: str) -> None:
                            doc.get("_id"), language.value, e)
 
     total_pictograms[language] = total
+
+    # Sort every index entry by ARASAAC download count (desc).
+    # This makes find_by_exact / find_by_lemma / find_by_synset prefer
+    # the most-used pictogram for ambiguous terms.
+    _sort_indices_by_downloads(language)
+
     logger.info(
         "[%s] Indexed %d/%d pictograms — exact:%d lemma:%d synset:%d vocab:%d",
         language.value, indexed, total,
@@ -91,6 +97,19 @@ def _build_for_language(language: Language, coll_name: str) -> None:
         len(synset_index[language]),
         len(vocabulary[language]),
     )
+
+
+def _sort_indices_by_downloads(language: Language) -> None:
+    """Sort each index entry's pictogram list by download count, descending."""
+    def by_downloads(p: Pictogram) -> int:
+        return p.downloads or 0
+
+    for term, lst in exact_index[language].items():
+        lst.sort(key=by_downloads, reverse=True)
+    for term, lst in lemma_index[language].items():
+        lst.sort(key=by_downloads, reverse=True)
+    for sid, lst in synset_index[language].items():
+        lst.sort(key=by_downloads, reverse=True)
 
 
 def _index_single(p: Pictogram, language: Language) -> None:

@@ -28,11 +28,11 @@ class MatchType(str, Enum):
 
 # Confidence values per match strategy
 CONFIDENCE_BY_TYPE: dict[MatchType, float] = {
-    MatchType.EXACT: 1.0,
-    MatchType.SLIDING_WINDOW: 0.95,
-    MatchType.PERSONAL_RELATIONSHIP: 0.95,  # high — user-curated mapping
+    MatchType.SLIDING_WINDOW: 1.0,           # most specific (multi-word)
+    MatchType.EXACT: 0.95,                    # single-token exact match
+    MatchType.PERSONAL_RELATIONSHIP: 0.95,
     MatchType.LEXICAL_DICT: 0.9,
-    MatchType.DISAMBIGUATED: 0.85,          # context-inferred resolution
+    MatchType.DISAMBIGUATED: 0.85,
     MatchType.LEMMA: 0.8,
     MatchType.COMPOUND_SPLIT: 0.7,
     MatchType.SYNSET: 0.7,
@@ -130,6 +130,41 @@ class EvaluationMetrics(BaseModel):
     accuracy_location: float
     accuracy_attendees: float
     accuracy_overall: float           # % where all three fields are correct
+
+    # --- Slot-based P/R/F1 ---
+    # Recall = covered slots / total slots (= accuracy at slot granularity).
+    # Precision = predictions that hit any slot / total predictions.
+    # F1 = harmonic mean.
+    precision_summary: float
+    recall_summary: float
+    f1_summary: float
+    precision_location: float
+    recall_location: float
+    f1_location: float
+    precision_attendees: float
+    recall_attendees: float
+    f1_attendees: float
+    precision_macro: float
+    recall_macro: float
+    f1_macro: float
+
+    # --- Per-prediction (set-based) P/R/F1 ---
+    # Targets treated as a flat union of all slot IDs; predictions treated as a flat set.
+    # Stricter than slot-based Recall: every target ID must be predicted, alternatives
+    # within a slot don't grant credit to each other.
+    pp_precision_summary: float
+    pp_recall_summary: float
+    pp_f1_summary: float
+    pp_precision_location: float
+    pp_recall_location: float
+    pp_f1_location: float
+    pp_precision_attendees: float
+    pp_recall_attendees: float
+    pp_f1_attendees: float
+    pp_precision_macro: float
+    pp_recall_macro: float
+    pp_f1_macro: float
+
     avg_confidence: float
     match_type_distribution: dict[str, int]
     avg_unmatched_tokens_per_entry: float

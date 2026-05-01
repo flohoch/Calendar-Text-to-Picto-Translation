@@ -216,17 +216,91 @@ def _accuracy(values: list[bool | None]) -> float:
     return sum(1 for v in evaluated if v) / len(evaluated)
 
 
+def _prf_for_field(predicted: list[int],
+                   target_groups: list[list[int]]) -> tuple[float, float, float] | None:
+    """
+    Slot-based precision, recall, F1 for one prediction vs one target spec.
+
+    - Recall    = covered slots / total slots
+    - Precision = predictions hitting any slot / total predictions
+    - F1        = 2PR / (P+R)
+
+    Returns None if the field has no targets (skipped in aggregation).
+    Returns (0,0,0) if there are targets but no predictions.
+    """
+    if not target_groups:
+        return None
+
+    pred_set = set(predicted)
+
+    # Recall: how many target slots are covered by ≥1 prediction
+    covered = sum(1 for g in target_groups if (set(g) & pred_set))
+    recall = covered / len(target_groups)
+
+    # Precision: how many predictions hit any target slot
+    if not predicted:
+        precision = 0.0
+    else:
+        all_target_ids: set[int] = set()
+        for g in target_groups:
+            all_target_ids.update(g)
+        hits = sum(1 for pid in predicted if pid in all_target_ids)
+        precision = hits / len(predicted)
+
+    if precision + recall == 0:
+        f1 = 0.0
+    else:
+        f1 = 2 * precision * recall / (precision + recall)
+
+    return precision, recall, f1
+
+
+def _pp_prf_for_field(predicted: list[int],
+                      target_groups: list[list[int]]) -> tuple[float, float, float] | None:
+    """
+    Per-prediction (set-based) precision, recall, F1.
+
+    Targets are flattened to a single set: T = union of all slot IDs.
+    Predictions are flattened to a single set: P.
+
+    - Precision = |P ∩ T| / |P|
+    - Recall    = |P ∩ T| / |T|        (every target ID must be predicted —
+                                         alternatives within a slot do NOT
+                                         grant credit to each other)
+    - F1        = 2PR / (P+R)
+
+    Returns None if there are no targets.
+    Returns (0,0,0) if there are targets but no predictions.
+    """
+    if not target_groups:
+        return None
+
+    target_set: set[int] = set()
+    for g in target_groups:
+        target_set.update(g)
+
+    if not target_set:
+        return None
+
+    pred_set = set(predicted)
+    intersection = pred_set & target_set
+
+    precision = len(intersection) / len(pred_set) if pred_set else 0.0
+    recall = len(intersection) / len(target_set)
+    f1 = (2 * precision * recall / (precision + recall)
+          if (precision + recall) else 0.0)
+
+    return precision, recall, f1
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values) if values else 0.0
+
+
 def _compute_metrics(entries: list[EvaluationEntry]) -> EvaluationMetrics:
     total = len(entries)
     if total == 0:
-        return EvaluationMetrics(
-            total_entries=0,
-            coverage_summary=0.0, coverage_location=0.0, coverage_attendees=0.0,
-            accuracy_summary=0.0, accuracy_location=0.0, accuracy_attendees=0.0,
-            accuracy_overall=0.0,
-            avg_confidence=0.0, match_type_distribution={},
-            avg_unmatched_tokens_per_entry=0.0,
-        )
+        return _empty_metrics()
 
     summary_covered = sum(1 for e in entries if e.response.summary.matches)
     location_covered = sum(1 for e in entries if e.response.location.matches)
@@ -252,6 +326,69 @@ def _compute_metrics(entries: list[EvaluationEntry]) -> EvaluationMetrics:
     else:
         acc_overall = 0.0
 
+    # --- Per-field P/R/F1 (slot-based and per-prediction) ---
+    slot_lists: dict[str, tuple[list, list, list]] = {
+        "summary": ([], [], []),
+        "location": ([], [], []),
+        "attendees": ([], [], []),
+    }
+    pp_lists: dict[str, tuple[list, list, list]] = {
+        "summary": ([], [], []),
+        "location": ([], [], []),
+        "attendees": ([], [], []),
+    }
+
+    for e in entries:
+        pred_summary = [m.pictogram_id for m in e.response.summary.matches]
+        pred_location = [m.pictogram_id for m in e.response.location.matches]
+        pred_attendees = [m.pictogram_id for att in e.response.attendees for m in att.matches]
+
+        for field, predicted, targets in [
+            ("summary", pred_summary, e.expected_summary),
+            ("location", pred_location, e.expected_location),
+            ("attendees", pred_attendees, e.expected_attendees),
+        ]:
+            slot_res = _prf_for_field(predicted, targets)
+            if slot_res is not None:
+                p, r, f = slot_res
+                slot_lists[field][0].append(p)
+                slot_lists[field][1].append(r)
+                slot_lists[field][2].append(f)
+
+            pp_res = _pp_prf_for_field(predicted, targets)
+            if pp_res is not None:
+                p, r, f = pp_res
+                pp_lists[field][0].append(p)
+                pp_lists[field][1].append(r)
+                pp_lists[field][2].append(f)
+
+    def field_means(buckets: dict[str, tuple[list, list, list]]) -> dict[str, tuple[float, float, float]]:
+        return {
+            field: (_mean(buckets[field][0]),
+                    _mean(buckets[field][1]),
+                    _mean(buckets[field][2]))
+            for field in ("summary", "location", "attendees")
+        }
+
+    slot_means = field_means(slot_lists)
+    pp_means = field_means(pp_lists)
+
+    def macro(buckets: dict[str, tuple[list, list, list]],
+              means: dict[str, tuple[float, float, float]]) -> tuple[float, float, float]:
+        # Average only over fields that had at least one evaluable entry.
+        present = [f for f in means if buckets[f][0]]
+        if not present:
+            return 0.0, 0.0, 0.0
+        return (
+            _mean([means[f][0] for f in present]),
+            _mean([means[f][1] for f in present]),
+            _mean([means[f][2] for f in present]),
+        )
+
+    slot_macro_p, slot_macro_r, slot_macro_f = macro(slot_lists, slot_means)
+    pp_macro_p, pp_macro_r, pp_macro_f = macro(pp_lists, pp_means)
+
+    # --- Match-type distribution and confidences ---
     match_type_counts: dict[str, int] = {}
     total_confidence = 0.0
     total_match_count = 0
@@ -284,9 +421,55 @@ def _compute_metrics(entries: list[EvaluationEntry]) -> EvaluationMetrics:
         accuracy_location=acc_location,
         accuracy_attendees=acc_attendees,
         accuracy_overall=acc_overall,
+        # Slot-based
+        precision_summary=round(slot_means["summary"][0], 4),
+        recall_summary=round(slot_means["summary"][1], 4),
+        f1_summary=round(slot_means["summary"][2], 4),
+        precision_location=round(slot_means["location"][0], 4),
+        recall_location=round(slot_means["location"][1], 4),
+        f1_location=round(slot_means["location"][2], 4),
+        precision_attendees=round(slot_means["attendees"][0], 4),
+        recall_attendees=round(slot_means["attendees"][1], 4),
+        f1_attendees=round(slot_means["attendees"][2], 4),
+        precision_macro=round(slot_macro_p, 4),
+        recall_macro=round(slot_macro_r, 4),
+        f1_macro=round(slot_macro_f, 4),
+        # Per-prediction
+        pp_precision_summary=round(pp_means["summary"][0], 4),
+        pp_recall_summary=round(pp_means["summary"][1], 4),
+        pp_f1_summary=round(pp_means["summary"][2], 4),
+        pp_precision_location=round(pp_means["location"][0], 4),
+        pp_recall_location=round(pp_means["location"][1], 4),
+        pp_f1_location=round(pp_means["location"][2], 4),
+        pp_precision_attendees=round(pp_means["attendees"][0], 4),
+        pp_recall_attendees=round(pp_means["attendees"][1], 4),
+        pp_f1_attendees=round(pp_means["attendees"][2], 4),
+        pp_precision_macro=round(pp_macro_p, 4),
+        pp_recall_macro=round(pp_macro_r, 4),
+        pp_f1_macro=round(pp_macro_f, 4),
         avg_confidence=round(avg_confidence, 3),
         match_type_distribution=match_type_counts,
         avg_unmatched_tokens_per_entry=round(avg_unmatched, 2),
+    )
+
+
+def _empty_metrics() -> EvaluationMetrics:
+    zero = 0.0
+    return EvaluationMetrics(
+        total_entries=0,
+        coverage_summary=zero, coverage_location=zero, coverage_attendees=zero,
+        accuracy_summary=zero, accuracy_location=zero, accuracy_attendees=zero,
+        accuracy_overall=zero,
+        precision_summary=zero, recall_summary=zero, f1_summary=zero,
+        precision_location=zero, recall_location=zero, f1_location=zero,
+        precision_attendees=zero, recall_attendees=zero, f1_attendees=zero,
+        precision_macro=zero, recall_macro=zero, f1_macro=zero,
+        pp_precision_summary=zero, pp_recall_summary=zero, pp_f1_summary=zero,
+        pp_precision_location=zero, pp_recall_location=zero, pp_f1_location=zero,
+        pp_precision_attendees=zero, pp_recall_attendees=zero, pp_f1_attendees=zero,
+        pp_precision_macro=zero, pp_recall_macro=zero, pp_f1_macro=zero,
+        avg_confidence=zero, match_type_distribution={},
+        avg_unmatched_tokens_per_entry=zero,
     )
 
 

@@ -41,7 +41,7 @@ except ImportError:
 
 # Set populated at startup with ARASAAC keyword vocabulary
 _vocabulary: set[str] = set()
-MIN_PART_LEN = 3
+MIN_PART_LEN = 4
 
 
 def set_vocabulary(words: set[str]) -> None:
@@ -80,7 +80,10 @@ def split(word: str) -> list[str]:
 def _greedy_split(word: str) -> list[str]:
     """
     Greedy longest-prefix split using the ARASAAC vocabulary as a dictionary.
-    Returns parts only if the entire word can be segmented.
+    Both the prefix and the remainder (or its sub-split) must be in the
+    vocabulary, so a partial-only match like "sch" + "ule" is rejected.
+
+    Words that are themselves vocabulary entries are returned unsplit.
     """
     if not _vocabulary:
         return [word]
@@ -89,25 +92,31 @@ def _greedy_split(word: str) -> list[str]:
     if n < MIN_PART_LEN * 2:
         return [word]
 
-    # Find longest prefix that's in vocabulary
+    # Don't split a word that's already a known vocabulary entry
+    if word in _vocabulary:
+        return [word]
+
+    # Find longest prefix that's in vocabulary AND whose remainder is also resolvable
     for prefix_len in range(n - MIN_PART_LEN, MIN_PART_LEN - 1, -1):
         prefix = word[:prefix_len]
-        if prefix in _vocabulary:
-            remainder = word[prefix_len:]
-            # Strip German linking morpheme 's'
-            if remainder.startswith("s") and len(remainder) > MIN_PART_LEN:
-                remainder_stripped = remainder[1:]
-                if remainder_stripped in _vocabulary:
-                    return [prefix, remainder_stripped]
-                # try recursing on stripped remainder
-                rest_parts = _greedy_split(remainder_stripped)
-                if len(rest_parts) > 1 or remainder_stripped in _vocabulary:
-                    return [prefix] + rest_parts
-            if remainder in _vocabulary:
-                return [prefix, remainder]
-            # Recurse on remainder
-            rest_parts = _greedy_split(remainder)
-            if len(rest_parts) > 1:
-                return [prefix] + rest_parts
+        if prefix not in _vocabulary:
+            continue
+
+        remainder = word[prefix_len:]
+
+        # Strip German linking morpheme 's'
+        if remainder.startswith("s") and len(remainder) > MIN_PART_LEN:
+            stripped = remainder[1:]
+            if stripped in _vocabulary:
+                return [prefix, stripped]
+            sub_parts = _greedy_split(stripped)
+            if len(sub_parts) > 1:
+                return [prefix] + sub_parts
+
+        if remainder in _vocabulary:
+            return [prefix, remainder]
+        sub_parts = _greedy_split(remainder)
+        if len(sub_parts) > 1:
+            return [prefix] + sub_parts
 
     return [word]

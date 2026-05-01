@@ -20,7 +20,11 @@ def translate(request: TranslationRequest) -> TranslationResponse:
     location_result = location_service.translate(
         request.location, request.language, summary_context=request.summary,
     )
-    attendee_results = attendee_service.translate(request.attendees, request.language)
+    # Pass summary text into the attendee pipeline so it can pick the right
+    # doctor-specialty pictogram based on the event context.
+    attendee_results = attendee_service.translate(
+        request.attendees, request.language, summary_context=request.summary,
+    )
 
     logger.info("=== Request complete: %d summary, %d location, %d attendee results",
                 len(summary_result.matches), len(location_result.matches),

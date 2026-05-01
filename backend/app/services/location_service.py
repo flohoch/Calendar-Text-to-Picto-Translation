@@ -15,7 +15,8 @@ import logging
 from app.models.schemas import (FieldTranslation, Language, MatchType,
                                 PictogramMatch)
 from app.services import (disambiguation_dictionaries, index_service,
-                          lexical_dictionaries, matching_pipeline, nlp_service)
+                          lexical_dictionaries, matching_pipeline, nlp_service,
+                          text_normalization)
 
 logger = logging.getLogger(__name__)
 
@@ -30,11 +31,18 @@ def translate(text: str, language: Language,
     if not text or not text.strip():
         return FieldTranslation(originalText="", matches=[], unmatchedTokens=[])
 
+    # Normalize abbreviations in the location text. Note that location-specific
+    # abbreviations (Hofer, AKH, etc.) are still resolved by the lexical
+    # dictionary later — normalization only handles generic shortforms.
+    normalized = text_normalization.normalize(text.strip(), language)
+    if normalized != text.strip():
+        logger.info("[LOCATION] Normalized: '%s' → '%s'", text, normalized)
+
     logger.info("[LOCATION] Input: '%s' (summary context: '%s')",
-                text, summary_context)
+                normalized, summary_context)
 
     # Tier A: NER
-    nlp_result = nlp_service.process(text, language)
+    nlp_result = nlp_service.process(normalized, language)
     entities = [(e.text, e.label) for e in nlp_result.entities]
     logger.info("[LOCATION] NER entities → %s", entities)
 
@@ -56,8 +64,8 @@ def translate(text: str, language: Language,
             ))
             return FieldTranslation(originalText=text, matches=matches, unmatchedTokens=[])
 
-    # Tier C: Lexical lookup — try the whole text and each entity
-    candidates: list[str] = [text.strip().lower()]
+    # Tier C: Lexical lookup — try the whole (normalized) text and each entity
+    candidates: list[str] = [normalized.strip().lower()]
     for ent in nlp_result.entities:
         candidates.append(ent.text.strip().lower())
     seen = set()

@@ -103,3 +103,28 @@ def get_hypernyms_for_all(synset_ids: set[str], max_depth: int = 2) -> list[set[
             if i < max_depth:
                 aggregated[i].update(level)
     return aggregated
+
+
+def lookup_synsets_for_word(word: str) -> set[str]:
+    """
+    Look up a word directly in WordNet (English only — NLTK's WordNet is
+    English-only by default, though OMW-1.4 enables cross-lingual queries).
+
+    Returns ARASAAC-format synset IDs for every synset the word participates
+    in. Use this when the word is NOT an ARASAAC keyword and therefore has
+    no entry in keyword-to-synsets, but might still resolve through
+    direct WordNet membership.
+    """
+    if not _available or not word or not word.strip():
+        return set()
+
+    result: set[str] = set()
+    try:
+        synsets = wn.synsets(word.strip().lower())
+        for s in synsets:
+            sid = to_arasaac_format(s)
+            if sid:
+                result.add(sid)
+    except Exception as e:
+        logger.debug("WordNet lookup failed for '%s': %s", word, e)
+    return result
